@@ -26,7 +26,32 @@ $(function () {
         return Math.floor(Math.random() * (max - min)) + min;
     }
 
-    function getXCoordinate(cname, step, foundOrAcqFlag) {
+    function getSize(size) {
+        if (size < 10)
+            return 6;
+        else if(size < 25)
+            return 9;
+        else if(size < 50)
+            return 12;
+        else if(size < 100)
+            return 15;
+        else if(size < 251)
+            return 18;
+        else if(size < 301)
+            return 20;
+        else if(size < 501)
+            return 23;
+        else if(size < 1001)
+            return 25;
+        else if(size < 5001)
+            return 27;
+        else if(size < 10001)
+            return 30;
+        else
+            return ; // average size? TODO
+
+    }
+    function getXCoordinate(acquiringCompany, step, foundOrAcqFlag) {
         if (foundOrAcqFlag == 'founded') {
             if (step == 1)
                 return 0;
@@ -37,11 +62,21 @@ $(function () {
         }
         if (foundOrAcqFlag == 'acquired') {
             if (step == 1)
-                return getRndInteger(90, 100);
+                return getRndInteger(40, 60);
             else if (step == 2)
-                return getRndInteger(90, 100);
-            else if (step == 3)
-                return 25;
+                return getRndInteger(40, 60);
+            else if (step == 3) {
+                if (acquiringCompany.toLowerCase() == 'google')
+                    return 10;
+                else if (acquiringCompany.toLowerCase() == 'amazon')
+                    return 30;
+                else if (acquiringCompany.toLowerCase() == 'microsoft')
+                    return 50;
+                else if (acquiringCompany.toLowerCase() == 'apple')
+                    return 70;
+                else if (acquiringCompany.toLowerCase() == 'facebook')
+                    return 90;
+            }
         }
     }
 
@@ -56,11 +91,11 @@ $(function () {
         }
         if (foundOrAcqFlag == 'acquired') {
             if (step == 1)
-                return getRndInteger(90, 100);
+                return getRndInteger(60, 40);
             else if (step == 2)
-                return getRndInteger(90, 100);
+                return getRndInteger(40, 20);
             else if (step == 3)
-                return 25;
+                return 10;
         }
     }
 
@@ -76,12 +111,9 @@ $(function () {
     var company_metadata = {};
 
     d3.csv('mock.csv', function (data) {
-        console.log(data);
         data.forEach(function (d) {
-            var year_founded = d['Founded'].split('-')[0];
-            var year_acquired = d['Acquisition date'].split('-')[0];
-            console.log(year_founded, 'year founded');
-            console.log(year_acquired, 'year acquired');
+            var year_founded = d['Founded'];
+            var year_acquired = d['Acquisition date'];
             var company = d['Company'];
             if (!year_to_company[year_founded]) {
                 year_to_company[year_founded] = {founded: [], acquired: []};
@@ -96,8 +128,6 @@ $(function () {
             year_to_company[year_acquired].acquired.push(company);
             company_metadata[company] = d;
         });
-        console.log('year to company', year_to_company);
-        console.log('company to meta', company_metadata);
 
         xScale = d3.scaleLinear()
             .domain([0, 100]) //maybe add max function here -- d3.max(data,function(d){return d[0]})
@@ -112,15 +142,14 @@ $(function () {
             .enter()
             .append("circle")
             .attr("cx", function (d) {
-                return xScale(getXCoordinate(d, 1, 'founded'))
+                return xScale(getXCoordinate(d.AcquiredBy, 1, 'founded'))
 
             })
             .attr("cy", function (d) {
-                return yScale(getYCoordinate(d, 1, 'founded'))
+                return yScale(getYCoordinate(d.AcquiredBy, 1, 'founded'))
             })
             .attr("r", function (d) {
-                //return company_metadata[cname].Size
-                return 6
+                return getSize(parseInt(d.Size))
             })
             .attr("fill", function (d) {
                 if (d.BroadCategory == "AI/ML/Analytics") {
@@ -137,7 +166,7 @@ $(function () {
                 }
 
             })
-            .attr("class", function(d,i) {return "founded_" + d['Founded'].split('-')[0] + " " + "acquired_" + d['Acquisition date'].split('-')[0];});
+            .attr("class", function(d,i) {return "founded_" + d['Founded'] + " " + "acquired_" + d['Acquisition date'];});
 
 
 
@@ -145,11 +174,9 @@ $(function () {
 
 
         var current_year_index = -1;
-        var cur_arr = []
         d3.select('#nextButton').on('click', function (event) {
             current_year_index += 1;
             var current_year = Object.keys(year_to_company)[current_year_index];
-            console.log('current year', current_year);
             if (current_year == 2018) {
                 current_year_index = -1
             }
@@ -176,10 +203,10 @@ $(function () {
                 })
                 .duration(2000)
                 .attr("cx", function (d) {
-                    return xScale(getXCoordinate(d, 1, 'founded'))
+                    return xScale(getXCoordinate(company_metadata[d].AcquiredBy, 1, 'founded'))
                 })
                 .attr("cy", function (d) {
-                    return yScale(getYCoordinate(d, 1, 'founded'))
+                    return yScale(getYCoordinate(company_metadata[d].AcquiredBy, 1, 'founded'))
                 })
                 // .each("end")
                 .transition()
@@ -188,10 +215,10 @@ $(function () {
                 })
                 .duration(2000)
                 .attr("cx", function (d) {
-                    return xScale(getXCoordinate(d, 2, 'founded'))
+                    return xScale(getXCoordinate(company_metadata[d].AcquiredBy, 2, 'founded'))
                 })
                 .attr("cy", function (d) {
-                    return yScale(getYCoordinate(d, 2, 'founded'))
+                    return yScale(getYCoordinate(company_metadata[d].AcquiredBy, 2, 'founded'))
                 })
                 .transition()
                 .delay(function (d, i) {
@@ -199,10 +226,10 @@ $(function () {
                 })
                 .duration(2000)
                 .attr("cx", function (d) {
-                    return xScale(getXCoordinate(d, 3, 'founded'))
+                    return xScale(getXCoordinate(company_metadata[d].AcquiredBy, 3, 'founded'))
                 })
                 .attr("cy", function (d) {
-                    return yScale(getYCoordinate(d, 3, 'founded'))
+                    return yScale(getYCoordinate(company_metadata[d].AcquiredBy, 3, 'founded'))
                 });
 
             graphArea.selectAll(".acquired_"+current_year)
@@ -213,10 +240,10 @@ $(function () {
                 })
                 .duration(2000)
                 .attr("cx", function (d) {
-                    return xScale(getXCoordinate(d, 1, 'acquired'))
+                    return xScale(getXCoordinate(company_metadata[d].AcquiredBy, 1, 'acquired'))
                 })
                 .attr("cy", function (d) {
-                    return yScale(getYCoordinate(d, 1, 'acquired'))
+                    return yScale(getYCoordinate(company_metadata[d].AcquiredBy, 1, 'acquired'))
                 })
                 // .each("end")
                 .transition()
@@ -225,10 +252,10 @@ $(function () {
                 })
                 .duration(2000)
                 .attr("cx", function (d) {
-                    return xScale(getXCoordinate(d, 2, 'acquired'))
+                    return xScale(getXCoordinate(company_metadata[d].AcquiredBy, 2, 'acquired'))
                 })
                 .attr("cy", function (d) {
-                    return yScale(getYCoordinate(d, 2, 'acquired'))
+                    return yScale(getYCoordinate(company_metadata[d].AcquiredBy, 2, 'acquired'))
                 })
                 .transition()
                 .delay(function (d, i) {
@@ -236,10 +263,10 @@ $(function () {
                 })
                 .duration(2000)
                 .attr("cx", function (d) {
-                    return xScale(getXCoordinate(d, 3, 'acquired'))
+                    return xScale(getXCoordinate(company_metadata[d].AcquiredBy, 3, 'acquired'))
                 })
                 .attr("cy", function (d) {
-                    return yScale(getYCoordinate(d, 3, 'acquired'))
+                    return yScale(getYCoordinate(company_metadata[d].AcquiredBy, 3, 'acquired'))
                 });
         });
     });
