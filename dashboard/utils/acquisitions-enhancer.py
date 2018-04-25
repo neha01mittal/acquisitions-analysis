@@ -1,7 +1,7 @@
 import csv
 
 # open the file in universal line ending mode
-with open('AcquisitionDatabaseAppleFixed.csv', encoding="ISO-8859-1") as infile:
+with open('AcquisitionDatabaseFinal.csv', encoding="ISO-8859-1") as infile:
   # read the file as a dictionary for each row ({header : value})
   reader = csv.DictReader(infile)
   data = {}
@@ -14,13 +14,12 @@ with open('AcquisitionDatabaseAppleFixed.csv', encoding="ISO-8859-1") as infile:
 
 # extract the variables you want
 Categories = data['Categories']
-print(Categories)
 
 newdata = []
-for element in Categories:
+for i, element in enumerate(Categories):
     if 'AI' in element.upper() or 'artificial intelligence' in element.lower() or 'robotics' in element.lower() or 'machine learning' in element.lower() or 'ML' in element.upper() or 'analytics' in element.lower():
         newdata.append('AI/ML/Analytics')
-    elif 'AR' in element.upper() or 'VR' in element.upper() or 'augmented' in element.lower() or 'virtual reality' in element.lower() or 'augmented reality' in element.lower():
+    elif 'augmented' in element.lower() or 'virtual reality' in element.lower() or 'augmented reality' in element.lower():
         newdata.append('AR/VR')
     elif 'digital' in element.lower() or 'internet' in element.lower() or 'app' in element.lower() or 'information' in element.lower() or 'software' in element.lower() or 'cloud' in element.lower() or 'web' in element.lower() or 'mobile' in element.lower() or 'ios' in element.lower() or 'android' in element.lower():
         newdata.append('Software')
@@ -31,13 +30,14 @@ for element in Categories:
     elif 'security' in element.lower() or 'cyber' in element.lower():
         newdata.append('Security')
     else:
-        newdata.append('Uncategorised')
+        print('picking from manually annotated records', data['Broad Category'][i])
+        newdata.append(data['Broad Category'][i])
 
 
 
 import pandas as pd
 
-df = pd.read_csv('AcquisitionDatabaseAppleFixed.csv', encoding="ISO-8859-1")
-new_column = pd.DataFrame({'Cleaned Categories': newdata})
+df = pd.read_csv('AcquisitionDatabaseFinal.csv', encoding="ISO-8859-1")
+new_column = pd.DataFrame({'BroadCategory': newdata})
 df = df.merge(new_column, left_index=True, right_index=True)
-df.to_csv('AcquisitionDatabaseFixed.csv')
+df.to_csv('AcquisitionDatabaseFinalFixed.csv')
