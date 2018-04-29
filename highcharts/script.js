@@ -9,7 +9,7 @@ Highcharts.chart('container', {
         type: 'column'
     },
     title: {
-        text: 'Spend on Acquisitons (2012 - 2017)'
+        text: 'Spend on Acquisitons (2006 - 2017)'
     },
     subtitle: {
         text: 'Source: SEC 10-K Filings'
