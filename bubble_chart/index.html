@@ -9,20 +9,30 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/bubble_chart.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <div class="container">
-    <h1>The Big 5 Takeover</h1>
+    <h3>Takeover of Big 5 Tech Companies</h3>
     <div id="toolbar">
-      <a href="#" id="next" class="button">Next</a>
-    </div>
-    <div id="vis"></div>
-
-    <div class="footer">
-      <p>A demonstration of animated bubble charts in JavaScript and D3.js</p>
-      <p><a href="http://vallandingham.me/bubble_charts_in_js.html">Blog Post</a> | <a href="https://github.com/vlandham/bubble_chart">Code</a></p>
+      <a href="#" id="all" class="button">All Years</a>
+      <a href="#" id="year00-05" class="button">2000-2005</a>
+      <a href="#" id="year06-11" class="button">2006-2011</a>
+      <a href="#" id="year12-Present" class="button">2012-Present</a>
+      <br>
+      <br>
+      <a href="#" id="year" class="button">Company</a>
+      <a href="#" id="category" class="button">Categories</a>
     </div>
   </div>
+  <div id="vis"></div>
+
+    <!-- <div class="footer">
+      <p>A demonstration of animated bubble charts in JavaScript and D3.js</p>
+      <p><a href="http://vallandingham.me/bubble_charts_in_js.html">Blog Post</a> | <a href="https://github.com/vlandham/bubble_chart">Code</a></p>
+    </div> -->
+  <!-- </div> -->
 
   <script src="lib/d3.js"></script>
   <script src="src/tooltip.js"></script>
