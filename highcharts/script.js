@@ -21,7 +21,10 @@ Highcharts.chart('container', {
             '2012-14',
             '2015-17',
         ],
-        crosshair: true
+        crosshair: true,
+        title: {
+            text: 'Year'
+        }
     },
     yAxis: {
         min: 0,
