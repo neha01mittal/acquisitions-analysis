@@ -1299,6 +1299,24 @@
 	body.is-loading #banner:after {
 		opacity: 1.0;
 	}
+/* Highcharts div */
+
+		#container_highcharts {
+			display: inline-block;
+			width: 48%;
+
+		}
+
+		#paragraph_highcharts {
+			display: inline-block;
+			width:48%;
+			margin-left: 2%;
+		}
+
+
+
+
+
 
 /* One */
 

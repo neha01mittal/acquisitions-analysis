@@ -57,8 +57,8 @@ a, a:visited, a:active {
   background: #fff;
 	opacity: .9;
   color: black;
-	padding: 5px;
-	width: 200px;
+	padding: 2px;
+	width: 300px;
 	font-size: 12px;
 	z-index: 10;
 }

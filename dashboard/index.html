@@ -16,13 +16,23 @@
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script> 
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	  <script src="https://code.highcharts.com/highcharts.js"></script>
+	  <script src="https://code.highcharts.com/modules/annotations.js"></script>
+	  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+	  <script src="https://code.highcharts.com/modules/export-data.js"></script>
 	  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	  <link rel="stylesheet" href="css/bubble_chart.css">
+	  <!-- <script
+	  src="http://code.jquery.com/jquery-3.3.1.min.js"
+	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	  crossorigin="anonymous"></script> -->
+
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/reset.css">
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-xlarge.css" />
-			<link rel="stylesheet" href="css/bubble_chart.css">
+			
 		</noscript>
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
@@ -67,6 +77,20 @@
 					</ul>
 				</div>
 			</section>
+
+
+		<!-- Six -->
+		<section id="highcharts" class="wrapper style2">
+				<header class="major">
+						<h2>Did you know?</h2>
+						</header>
+				<div id="container_highcharts" align="left" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+				<div id="paragraph_highcharts" class="4u 6u(2) 12u$(3)">
+					<h3>Natoque phasellus</h3>
+					<p>Ipsum dolor tempus commodo amet sed accumsan et adipiscing blandit porttitor sed faucibus.</p>
+					</div>
+		</section>
+
 
 		<!-- One -->
 			<section id="one" class="wrapper style1">
@@ -215,29 +239,46 @@
 				</div>
 			</section>
 		
-		<!-- Three -->
-		<section>
+		<!-- Four -->
+		<section id="four" class="wrapper style2">
 			<div class="container">
 	    <h3>Takeover of Big 5 Tech Companies</h3>
 	    <div id="toolbar">
-	      <a href="#" id="all" class="button">All Years</a>
-	      <a href="#" id="year00-05" class="button">2000-2005</a>
-	      <a href="#" id="year06-11" class="button">2006-2011</a>
-	      <a href="#" id="year12-Present" class="button">2012-Present</a>
+	      <a href="#" id="all" class="bubble_button button">All Years</a>
+	      <a href="#" id="year00-05" class="bubble_button button">2000-2005</a>
+	      <a href="#" id="year06-11" class="bubble_button button">2006-2011</a>
+	      <a href="#" id="year12-Present" class="bubble_button button">2012-Present</a>
 	      <br>
-	      <a href="#" id="year" class="button">Company</a>
-	      <a href="#" id="category" class="button">Categories</a>
+	      <a href="#" id="year" class="bubble_button button">Company</a>
+	      <a href="#" id="category" class="bubble_button button">Categories</a>
 	    </div>
 	  </div>
 	  <div id="vis"></div>
 
+	 	<!-- Five -->
+<!-- 	 	<section>
+	 	<h3>TABLEAU CHART</h3>
+	 	<script type='text/javascript' src='https://us-west-2b.online.tableau.com/javascripts/api/viz_v1.js'></script>
+	 	<div class='tableauPlaceholder' style='width: 100px; height: 90px;'>
+	 		<object class='tableauViz' width='1016' height='991' style='display:none;'>
+	 			<param name='host_url' value='https%3A%2F%2Fus-west-2b.online.tableau.com%2F' />
+	 			<param name='embed_code_version' value='3' />
+	 			<param name='site_root' value='&#47;t&#47;infovizacquisitionanalysis' />
+	 			<param name='name' value='Acquisitions_v2&#47;Story1' />
+	 			<param name='tabs' value='no' /><param name='toolbar' value='yes' />
+	 			<param name='showAppBanner' value='false' /><param name='filter' value='iframeSizedToWindow=true' />
+	 		</object>
+	 	</div>
+	 	</section> -->
 
 
-
-
-
-
+	 	<!-- Six -->
+		<section  class="wrapper style1">
+			<div id="graph_tree">
+	    <h3>Graph Tree </h3>
+	  	</div>
 		</section>
+
 
 
 
@@ -287,6 +328,8 @@
 			<script src="lib/d3.js"></script> 
 		  <script src="js/tooltip.js"></script>
 		  <script src="js/bubble_chart.js"></script>
+		  <script src="js/script.js"></script>
+		  <script src="js/graph_tree.js"></script>
 
 	</body>
 </html>

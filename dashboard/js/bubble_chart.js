@@ -671,9 +671,11 @@ setupButtons();
 
 // INTERACTIONS
 // Change color of selected buttons
-$('.button').on('click', function() {
+$('.bubble_button').on('click', function() {
+  
 
   var selected = $(this).text();
+
 
       var activeStyle = {
       backgroundColor : "black",
@@ -685,6 +687,9 @@ $('.button').on('click', function() {
       color: "#444",
       border: "1px solid #e0e0e0"
     };
+
+    console.log("hello");
+    console.log(selected);
 
   if (selected == '2000-2005'){
     $(this).css(activeStyle);
@@ -734,6 +739,6 @@ $('.button').on('click', function() {
     $("#year").css(nonActiveStyle);
     $("#category").css(activeStyle);
   }
-
+  event.preventDefault();
 });
 
