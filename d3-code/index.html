@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html>
+<meta charset="utf-8">
+<style>
+    .link {
+        stroke: #ccc;
+    }
+
+     text {
+        pointer-events: none;
+        font: 10px sans-serif;
+    }
+</style>
 <head>
     <meta charset="utf-8">
     <!-- <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -10,7 +21,7 @@
     <script src="http://d3js.org/queue.v1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
-    <script src="app_mod.js"></script>
+    <script src="app_mod_simplified2.js"></script>
     <script src="pathFollow.js"></script>
 
 </head>
@@ -25,26 +36,18 @@
     width: 100em;'>
     <img src="conveyor_belt.png" style='width: 20em' alt="conveyor belt" width=10% height=10%>
 </div>
-<div style='    position: absolute;
-    z-index: -10;
-    top: 12em;
-    /* left: -18em; */
-    left: 23em;'>
-    <img style='height: 30em;
-    width: auto;
-    top: -5em;
-    /* margin-left: 20em; */
-    position: absolute;
-' src="cloud.jpg" alt="startup funnel">
-</div>
-
-<div style='    position: absolute;
-    z-index: -10;
-    top: 21vh;
-    left: 3vw;
-    width: 100em;'>
-    <img src="conveyor_belt.png" style='width: 20em' alt="conveyor belt" width=10% height=10%>
-</div>
+<!--<div style='    position: absolute;-->
+    <!--z-index: -10;-->
+    <!--top: 12em;-->
+    <!--/* left: -18em; */-->
+    <!--left: 23em;'>-->
+    <!--<img style='height: 30em;-->
+    <!--width: auto;-->
+    <!--top: -5em;-->
+    <!--/* margin-left: 20em; */-->
+    <!--position: absolute;-->
+<!--' src="cloud.jpg" alt="startup funnel">-->
+<!--</div>-->
 <div style='    position: absolute;
     z-index: 10;
     top: 33em;
@@ -54,11 +57,11 @@
     width: auto;
     /* margin-left: 20em; */
     position: absolute;
-' src="pacmaneat.png" id="google" alt="pac waits">
+' src="pacman.png" id="google" alt="pac waits">
     <!--<h3 style='top: -5em;'>GOOGLE</h3>-->
 </div>
 <div style='    position: absolute;
-    z-index: -10;
+    z-index: 10;
     top: 33em;
     /* left: -18em; */
     left: 20em;'>
@@ -66,10 +69,10 @@
     width: auto;
     /* margin-left: 20em; */
     position: absolute;
-' src="pacmaneat.png" id="amazon" alt="pac eats">
+' src="pacman.png" id="amazon" alt="pac eats">
     <!--<h3 style='top: -5em;'>GOOGLE</h3>-->
 </div><div style='    position: absolute;
-    z-index: -10;
+    z-index: 10;
     top: 33em;
     /* left: -18em; */
     left: 35em;'>
@@ -77,10 +80,10 @@
     width: auto;
     /* margin-left: 20em; */
     position: absolute;
-' src="pacmaneat.png" id="apple" alt="pac eats">
+' src="pacman.png" id="apple" alt="pac eats">
     <!--<h3 style='top: -5em;'>GOOGLE</h3>-->
 </div><div style='    position: absolute;
-    z-index: -10;
+    z-index: 10;
     top: 33em;
     /* left: -18em; */
     left: 50em;'>
@@ -88,10 +91,10 @@
     width: auto;
     /* margin-left: 20em; */
     position: absolute;
-' src="pacmaneat.png" id="microsoft" alt="pac eats">
+' src="pacman.png" id="microsoft" alt="pac eats">
     <!--<h3 style='top: -5em;'>GOOGLE</h3>-->
 </div><div style='    position: absolute;
-    z-index: -10;
+    z-index: 10;
     top: 33em;
     /* left: -18em; */
     left: 65em;'>
@@ -99,11 +102,11 @@
     width: auto;
     /* margin-left: 20em; */
     position: absolute;
-' src="pacmaneat.png" id="facebook" alt="pac eats">
+' src="pacman.png" id="facebook" alt="pac eats">
     <!--<h3 style='top: -5em;'>GOOGLE</h3>-->
 </div>
 <p id="status">Start:</p>
-<button id="nextButton">Next</button>
+<!--<button id="nextButton">Next</button>-->
 </body>
 </html>
 
