@@ -188,9 +188,10 @@
                             company_data = {
                                 "name": company,
                                 "children": [
-                                    {"name": "Size: " + d['Headcount']},
+                                    {"name": "Headcount: " + d['Headcount']},
                                     {"name": "Founded: " + d["Founded"]},
-                                    {"name": "Description: " + d["Description"]}
+                                    {"name": "Description: " + d["Description"]},
+                                    {"name": "Acquired: " + d['Acquisition date']}
                                 ]
                             };
                             subrow.children.push(company_data)
