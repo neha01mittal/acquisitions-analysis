@@ -54,36 +54,48 @@ $(function () {
 
     function getXCoordinate(acquiringCompany, step) {
 
-            if (step == 1)
-                return 0;
-            else if (step == 2)
-                return getRndInteger(40, 60);
-            else if (step == 3) {
-                if (acquiringCompany.toLowerCase() == 'google') {
-                    caller();
-                    return 10;
-                }
-                else if (acquiringCompany.toLowerCase() == 'amazon') {
-                    caller();
-                    return 30;
-                }
-                else if (acquiringCompany.toLowerCase() == 'microsoft')
-                    return 50;
-                else if (acquiringCompany.toLowerCase() == 'apple')
-                    return 70;
-                else if (acquiringCompany.toLowerCase() == 'facebook')
-                    return 90;
+        if (step == 1)
+            return 10;
+        else if (step == 2)
+            return 10;
+        else if (step == 3)
+            return 20;
+        else if (step == 4)
+            return getRndInteger(20, 50);
+        else if (step == 5)
+            return getRndInteger(60, 80);
+        else if (step == 6 || step == 7) {
+            if (acquiringCompany.toLowerCase() == 'google') {
+                return 8;
             }
+            else if (acquiringCompany.toLowerCase() == 'amazon') {
+                return 34;
+            }
+            else if (acquiringCompany.toLowerCase() == 'microsoft')
+                return 61;
+            else if (acquiringCompany.toLowerCase() == 'apple')
+                return 86;
+            else if (acquiringCompany.toLowerCase() == 'facebook')
+                return 112;
+        }
     }
 
     function getYCoordinate(cname, step) {
 
-            if (step == 1)
-                return 100;
-            else if (step == 2)
-                return getRndInteger(40, 20);
-            else if (step == 3)
-                return 10;
+        if (step == 1)
+            return 150;
+        else if (step == 2)
+            return 80;
+        else if (step == 3)
+            return 70;
+        else if (step == 4)
+            return getRndInteger(60, 70);
+        else if (step == 5)
+            return getRndInteger(50, 30);
+        else if (step == 6)
+            return 10;
+        else if (step == 7)
+            return 3;
 
     }
 
@@ -95,17 +107,14 @@ $(function () {
          *
          */
 
-    var year_to_company = {}
+    var year_to_company = []
     d3.csv('importantacq.csv', function (data) {
         data.forEach(function (d) {
             var current_year = d['Acquisition date'];
-            if (!year_to_company[current_year])
-                year_to_company[current_year] = [];
-
-            year_to_company[current_year].push(d);
+            year_to_company.push(d);
         });
         xScale = d3.scaleLinear()
-            .domain([0, 100]) //maybe add max function here -- d3.max(data,function(d){return d[0]})
+            .domain([0, 140]) //maybe add max function here -- d3.max(data,function(d){return d[0]})
             .range([0, width]);
         yScale = d3.scaleLinear()
             .domain([0, 100])
@@ -124,13 +133,13 @@ $(function () {
             //.attr("xlink:href", "pacman.png")
             .attr("xlink:href", function (d) {
                 if (d.BroadCategory == "AI/ML/Analytics") {
-                    return "pc5.png" // yellow
+                    return "pc1.png" //orange
                 }
                 else if (d.BroadCategory == "Software") {
                     return "pc4.png" // green
                 }
                 else if (d.BroadCategory == "Hardware") {
-                    return "pc1.png" //orange
+                    return "pc5.png" // yellow
                 }
                 else if (d.BroadCategory == "Media/Ad/Content") {
                     return "pc3.png" // pink
@@ -149,78 +158,84 @@ $(function () {
                 return yScale(getYCoordinate(d.AcquiredBy, 1, 'founded'))
             })
             .attr("class", function (d, i) {
-                return "acquired_" + d['Acquisition date'];
+                return "acquired";// + d['Acquisition date'];
             });
 
-        image.append("text")
-            .attr("dx", 5)
+        // image.append("text")
+        //     .attr("dx", 5)
+        //     .attr("dy", ".35em")
+        //     .text('WORKRKRKR');
+
+        image.append("svg:text")
+            .attr("class", "nodetext")
+            .attr("dx", 12)
             .attr("dy", ".35em")
-            .text('WORKRKRKR');
+            .text(function(d) { return 'TESTTT' })
 
-        var years = Object.keys(year_to_company);
-        years.forEach(function (year) {
-                    d3.select("#status").text("Year " + year);
-                    graphArea.selectAll(".acquired_" + year).data(year_to_company[year])
-                        .transition()
-                        .delay(function (d, i) {
-                            return i * 1000;
-                        })
-                        .duration(1000)
-                        .attr("x", function (d) {
-                            return xScale(getXCoordinate(d.AcquiredBy, 1))
-                        })
-                        .attr("y", function (d) {
-                            return yScale(getYCoordinate(d.AcquiredBy, 1))
-                        })
-                        .transition()
-                        .duration(1000)
-                        .attr("x", function (d) {
-                            return xScale(getXCoordinate(d.AcquiredBy, 2))
-                        })
-                        .attr("y", function (d) {
-                            return yScale(getYCoordinate(d.AcquiredBy, 2))
-                        });
+            .style("font-family", function(d) { return d['font-family'];})
+            .style("font-size", function(d) { return d['font-size'];})
+            .style("stroke", 'red')
+            .style('fill', function(d) { return 'white';});
 
-
-
-            // graphArea.selectAll(".acquired_" + current_year)
-                    //     .data(year_to_company[current_year].acquired)
-                    //     // .transition()
-                    //     // .delay(function (d, i) {
-                    //     //     return i * 50;
-                    //     // })
-                    //     // .duration(2000)
-                    //     // .attr("x", function (d) {
-                    //     //     return xScale(getXCoordinate(company_metadata[d].AcquiredBy, 1, 'acquired'))
-                    //     // })
-                    //     // .attr("y", function (d) {
-                    //     //     return yScale(getYCoordinate(company_metadata[d].AcquiredBy, 1, 'acquired'))
-                    //     // })
-                    //     // // .each("end")
-                    //     // .transition()
-                    //     // .delay(function (d, i) {
-                    //     //     return i * 100;
-                    //     // })
-                    //     // .duration(2000)
-                    //     // .attr("x", function (d) {
-                    //     //     return xScale(getXCoordinate(company_metadata[d].AcquiredBy, 2, 'acquired'))
-                    //     // })
-                    //     // .attr("y", function (d) {
-                    //     //     return yScale(getYCoordinate(company_metadata[d].AcquiredBy, 2, 'acquired'))
-                    //     // })
-                    //     .transition()
-                    //     .delay(function (d, i) {
-                    //         return i * 100;
-                    //     })
-                    //     .duration(2000)
-                    //     .attr("x", function (d) {
-                    //         return xScale(getXCoordinate(company_metadata[d].AcquiredBy, 3, 'acquired'))
-                    //     })
-                    //     .attr("y", function (d) {
-                    //         return yScale(getYCoordinate(company_metadata[d].AcquiredBy, 3, 'acquired'))
-                    //     });
-
-
+        graphArea.selectAll(".acquired").data(year_to_company)
+            .transition()
+            .delay(function (d, i) {
+                return i * 1000;
+            })
+            .duration(1000)
+            .attr("x", function (d) {
+                return xScale(getXCoordinate(d.AcquiredBy, 1))
+            })
+            .attr("y", function (d) {
+                return yScale(getYCoordinate(d.AcquiredBy, 1))
+            })
+            .transition()
+            .duration(1000)
+            .attr("x", function (d) {
+                return xScale(getXCoordinate(d.AcquiredBy, 2))
+            })
+            .attr("y", function (d) {
+                return yScale(getYCoordinate(d.AcquiredBy, 2))
+            })
+            .transition()
+            .duration(1000)
+            .attr("x", function (d) {
+                return xScale(getXCoordinate(d.AcquiredBy, 3))
+            })
+            .attr("y", function (d) {
+                return yScale(getYCoordinate(d.AcquiredBy, 3))
+            })
+.transition()
+            .duration(1000)
+            .attr("x", function (d) {
+                return xScale(getXCoordinate(d.AcquiredBy, 4))
+            })
+            .attr("y", function (d) {
+                return yScale(getYCoordinate(d.AcquiredBy, 4))
+            })
+.transition()
+            .duration(1000)
+            .attr("x", function (d) {
+                return xScale(getXCoordinate(d.AcquiredBy, 5))
+            })
+            .attr("y", function (d) {
+                return yScale(getYCoordinate(d.AcquiredBy, 5))
+            })
+.transition()
+            .duration(1000)
+            .attr("x", function (d) {
+                return xScale(getXCoordinate(d.AcquiredBy, 6))
+            })
+            .attr("y", function (d) {
+                return yScale(getYCoordinate(d.AcquiredBy, 6))
+            })
+.transition()
+            .duration(1000)
+            .attr("x", function (d) {
+                return xScale(getXCoordinate(d.AcquiredBy, 7))
+            })
+            .attr("y", function (d) {
+                return yScale(getYCoordinate(d.AcquiredBy, 7))
             });
 
     });

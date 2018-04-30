@@ -142,7 +142,6 @@ $(function(){
 
             graphArea.selectAll("circle")
                 .data(data)
-                .transition()
                 .delay(function(d,i){
                     return i*100;
                 })
