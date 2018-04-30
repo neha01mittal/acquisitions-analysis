@@ -1313,7 +1313,10 @@
 			margin-left: 2%;
 		}
 
-
+/* Graph Tree div*/
+		#graph_tree {
+			width: 100%;
+		}
 
 
 
