@@ -561,7 +561,7 @@ var categoryCenters = {
                   '</span><br/>' +
                   '<span class="name">No. of employees: </span><span class="value">' +
                   addCommas(d.value) +
-                  '</span><br/>' +
+                  '+</span><br/>' +
                   '<span class="name">Founded: </span><span class="value">' +
                   d.year +
                   '</span>';
