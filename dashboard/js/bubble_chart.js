@@ -19,14 +19,14 @@ function bubbleChart() {
     };
 
   var canvasWidth = window.innerWidth;  // NEED TO FIX THIS
-  var canvasHeight = window.innerHeight - margin.bottom;
+  var canvasHeight = window.innerHeight - 200;
 
 
   var width = canvasWidth;
   var height = canvasHeight;
 
   // tooltip for mouseover functionality
-  var tooltip = floatingTooltip('gates_tooltip', 240);
+  var tooltip = floatingTooltip('tooltip', 240);
 
   // Locations to move bubbles towards, depending
   // on which view mode is selected.
@@ -42,12 +42,107 @@ function bubbleChart() {
 
   // X locations of the year titles.
   var companyTitleX = {
-    'Amazon': 120,
-    'Apple': 370,
-    'Facebook': 590,
-    'Google': 870,
-    'Microsoft': 1190
+    'Amazon': 140,
+    'Apple': 390,
+    'Facebook': 630,
+    'Google': 920,
+    'Microsoft': 1200
   };
+
+   var company_00_05_TitleX = {
+    'Amazon': 190,
+    'Apple': 430,
+    'Facebook': 670,
+    'Google': 920,
+    'Microsoft': 1150
+  };
+
+  var company_06_11_TitleX = {
+    'Amazon': 165,
+    'Apple': 415,
+    'Facebook': 650,
+    'Google': 910,
+    'Microsoft': 1180
+  };
+
+  var company_12_Present_TitleX = {
+    'Amazon': 165,
+    'Apple': 415,
+    'Facebook': 655,
+    'Google': 920,
+    'Microsoft': 1165
+  };
+
+
+
+
+
+
+ var categoryCenters = {
+    'AI/ML/Analytics': { x: (width / 7)*1 +30, y: height / 2 - 50},
+    'AR/VR': { x: (width / 7)*2, y: height / 2 - 50 },
+    'Hardware': { x: (width / 7)*3, y: height / 2 - 50},
+    'Software': { x: (width / 7)*4, y: height / 2 - 50},
+    'Media/Commerce/UserDB': { x: (width / 7)*5, y: height / 2 - 50},
+    'Security': { x: (width / 7)*6 -20, y: height / 2 - 50},
+    
+  };
+
+  // X locations of the year titles.
+  var categoryTitleX = {
+    'AI/ML/Analytics': 145,
+    'AR/VR': 330,
+    'Hardware': 510,
+    'Software': 790,
+    'Media/Commerce/UserDB': 1065,
+    'Security': 1260
+    
+  };
+
+  var category_00_05_TitleX = {
+    'AI/ML/Analytics': 180,
+    'AR/VR': 370,
+    'Hardware': 570,
+    'Software': 780,
+    'Media/Commerce/UserDB': 1000,
+    'Security': 1200
+  };
+
+  var category_06_11_TitleX = {
+    'AI/ML/Analytics': 160,
+    'AR/VR': 355,
+    'Hardware': 540,
+    'Software': 785,
+    'Media/Commerce/UserDB': 1030,
+    'Security': 1230
+  };
+
+  var category_12_Present_TitleX = {
+    'AI/ML/Analytics': 160,
+    'AR/VR': 340,
+    'Hardware': 540,
+    'Software': 785,
+    'Media/Commerce/UserDB': 1025,
+    'Security': 1220
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // X locations of the paragraph write-ups.
 // NOT CATEGORIES OR COMPANY
@@ -151,27 +246,7 @@ function bubbleChart() {
 
 // **************
 
-  var categoryCenters = {
-    'AI/ML/Analytics': { x: (width / 7)*1 +30, y: height / 2 - 50},
-    'AR/VR': { x: (width / 7)*2, y: height / 2 - 50 },
-    'Hardware': { x: (width / 7)*3, y: height / 2 - 50},
-    'Software': { x: (width / 7)*4, y: height / 2 - 50},
-    'Media/Ad/Content': { x: (width / 7)*5, y: height / 2 - 50},
-    'Security': { x: (width / 7)*6 -20, y: height / 2 - 50},
-    
-  };
-
-  // X locations of the year titles.
-  var categoryTitleX = {
-    'AI/ML/Analytics': 120,
-    'AR/VR': 280,
-    'Hardware': 450,
-    'Software': 760,
-    'Media/Ad/Content': 1040,
-    'Security': 1240
-    
-  };
-
+ 
 
 
 
@@ -211,13 +286,13 @@ function bubbleChart() {
 
   // Nice looking colors - no reason to buck the trend
   var fillColor = d3.scale.ordinal()
-    .domain(['AI/ML/Analytics', 'Software', 'AR/VR', 'Hardware', 'Security', 'Media/Ad/Content'])
+    .domain(['AI/ML/Analytics', 'Software', 'AR/VR', 'Hardware', 'Security', 'Media/Commerce/UserDB'])
     .range(['red', 'beige', 'green', 'blue', 'aqua', 'gold']);
 
   // Sizes bubbles based on their area instead of raw radius
   var radiusScale = d3.scale.pow()
     .exponent(0.5)
-    .range([2, 30]);
+    .range([2, 24]);
 
   /*
    * This data manipulation function takes the raw data from
@@ -335,7 +410,7 @@ function bubbleChart() {
     // Fancy transition to make bubbles appear, ending with the
     // correct radius
     bubbles.transition()
-      .duration(2000)
+      .duration(1000)
       .attr('r', function (d) { return d.radius; });
 
     // Set initial layout to single group.
@@ -373,7 +448,7 @@ function bubbleChart() {
         // Fancy transition to make bubbles appear, ending with the
         // correct radius
         bubbles.transition()
-          .duration(2000)
+          .duration(1000)
           .attr('r', function (d) { return d.radius; });
 
         // Set initial layout to single group.
@@ -391,6 +466,13 @@ function bubbleChart() {
           hideParagraph_00_05_categories();
           hideParagraph_06_11_categories();
           hideParagraph_12_Present_categories();
+          hideCompanies_00_05()
+          hideCompanies_06_11()
+          hideCompanies_12_Present()
+          hideCategories_00_05()
+          hideCategories_06_11()
+          hideCategories_12_Present()
+
           showParagraph_00_05();
       });
 
@@ -424,7 +506,7 @@ function bubbleChart() {
         // Fancy transition to make bubbles appear, ending with the
         // correct radius
         bubbles.transition()
-          .duration(2000)
+          .duration(1000)
           .attr('r', function (d) { return d.radius; });
 
         // Set initial layout to single group.
@@ -442,6 +524,12 @@ function bubbleChart() {
           hideParagraph_00_05_categories();
           hideParagraph_06_11_categories();
           hideParagraph_12_Present_categories();
+          hideCompanies_00_05()
+          hideCompanies_06_11()
+          hideCompanies_12_Present()
+          hideCategories_00_05()
+          hideCategories_06_11()
+          hideCategories_12_Present()
           showParagraph_06_11();
       });
 
@@ -475,7 +563,7 @@ function bubbleChart() {
         // Fancy transition to make bubbles appear, ending with the
         // correct radius
         bubbles.transition()
-          .duration(2000)
+          .duration(1000)
           .attr('r', function (d) { return d.radius; });
 
         // Set initial layout to single group.
@@ -493,6 +581,12 @@ function bubbleChart() {
           hideParagraph_00_05_categories();
           hideParagraph_06_11_categories();
           hideParagraph_12_Present_categories();
+          hideCompanies_00_05()
+          hideCompanies_06_11()
+          hideCompanies_12_Present()
+          hideCategories_00_05()
+          hideCategories_06_11()
+          hideCategories_12_Present()
           showParagraph_12_Present();
       });
 
@@ -526,7 +620,7 @@ function bubbleChart() {
         // Fancy transition to make bubbles appear, ending with the
         // correct radius
         bubbles.transition()
-          .duration(2000)
+          .duration(1000)
           .attr('r', function (d) { return d.radius; });
 
         // Set initial layout to single group.
@@ -544,6 +638,12 @@ function bubbleChart() {
           hideParagraph_00_05_categories();
           hideParagraph_06_11_categories();
           hideParagraph_12_Present_categories();
+          hideCompanies_00_05()
+          hideCompanies_06_11()
+          hideCompanies_12_Present()
+          hideCategories_00_05()
+          hideCategories_06_11()
+          hideCategories_12_Present()
           showParagraph_all();
       });
 
@@ -614,6 +714,12 @@ function bubbleChart() {
     hideParagraph_00_05_categories();
     hideParagraph_06_11_categories();
     hideParagraph_12_Present_categories();
+    hideCompanies_00_05()
+    hideCompanies_06_11()
+    hideCompanies_12_Present()
+    hideCategories_00_05()
+    hideCategories_06_11()
+    hideCategories_12_Present()
     showCompanies();
 
     force.on('tick', function (e) {
@@ -639,6 +745,12 @@ function bubbleChart() {
     hideParagraph_00_05_categories();
     hideParagraph_06_11_categories();
     hideParagraph_12_Present_categories();
+    hideCompanies_00_05()
+    hideCompanies_06_11()
+    hideCompanies_12_Present()
+    hideCategories_00_05()
+    hideCategories_06_11()
+    hideCategories_12_Present()
     showParagraph_all_companies();
     showCompanies();
 
@@ -665,8 +777,14 @@ function bubbleChart() {
     hideParagraph_00_05_categories();
     hideParagraph_06_11_categories();
     hideParagraph_12_Present_categories();
+    // hideCompanies_00_05()
+    hideCompanies_06_11()
+    hideCompanies_12_Present()
+    hideCategories_00_05()
+    hideCategories_06_11()
+    hideCategories_12_Present()
     showParagraph_00_05_companies();
-    showCompanies();
+    showCompanies_00_05();
 
     force.on('tick', function (e) {
       bubbles.each(moveToYears(e.alpha))
@@ -692,8 +810,14 @@ function bubbleChart() {
     hideParagraph_00_05_categories();
     hideParagraph_06_11_categories();
     hideParagraph_12_Present_categories();
+    hideCompanies_00_05()
+    // hideCompanies_06_11()
+    hideCompanies_12_Present()
+    hideCategories_00_05()
+    hideCategories_06_11()
+    hideCategories_12_Present()
     showParagraph_06_11_companies();
-    showCompanies();
+    showCompanies_06_11();
 
     force.on('tick', function (e) {
       bubbles.each(moveToYears(e.alpha))
@@ -719,8 +843,14 @@ function bubbleChart() {
     hideParagraph_00_05_categories();
     hideParagraph_06_11_categories();
     hideParagraph_12_Present_categories();
+    hideCompanies_00_05()
+    hideCompanies_06_11()
+    // hideCompanies_12_Present()
+    hideCategories_00_05()
+    hideCategories_06_11()
+    hideCategories_12_Present()
     showParagraph_12_Present_companies();
-    showCompanies();
+    showCompanies_12_Present();
 
     force.on('tick', function (e) {
       bubbles.each(moveToYears(e.alpha))
@@ -749,6 +879,12 @@ function bubbleChart() {
     hideParagraph_00_05_categories();
     hideParagraph_06_11_categories();
     hideParagraph_12_Present_categories();
+    hideCompanies_00_05()
+    hideCompanies_06_11()
+    hideCompanies_12_Present()
+    hideCategories_00_05()
+    hideCategories_06_11()
+    hideCategories_12_Present()
     // showParagraph_all_categories();
     showCategories();
 
@@ -775,6 +911,12 @@ function bubbleChart() {
     hideParagraph_00_05_categories();
     hideParagraph_06_11_categories();
     hideParagraph_12_Present_categories();
+    hideCompanies_00_05()
+    hideCompanies_06_11()
+    hideCompanies_12_Present()
+    hideCategories_00_05()
+    hideCategories_06_11()
+    hideCategories_12_Present()
     showParagraph_all_categories();
     showCategories();
 
@@ -801,8 +943,14 @@ function bubbleChart() {
     // hideParagraph_00_05_categories();
     hideParagraph_06_11_categories();
     hideParagraph_12_Present_categories();
+    hideCompanies_00_05()
+    hideCompanies_06_11()
+    hideCompanies_12_Present()
+    // hideCategories_00_05()
+    hideCategories_06_11()
+    hideCategories_12_Present()
     showParagraph_00_05_categories();
-    showCategories();
+    showCategories_00_05();
 
     force.on('tick', function (e) {
       bubbles.each(moveToCategories(e.alpha))
@@ -827,8 +975,14 @@ function bubbleChart() {
     hideParagraph_00_05_categories();
     // hideParagraph_06_11_categories();
     hideParagraph_12_Present_categories();
+    hideCompanies_00_05()
+    hideCompanies_06_11()
+    hideCompanies_12_Present()
+    hideCategories_00_05()
+    // hideCategories_06_11()
+    hideCategories_12_Present()
     showParagraph_06_11_categories();
-    showCategories();
+    showCategories_06_11();
 
     force.on('tick', function (e) {
       bubbles.each(moveToCategories(e.alpha))
@@ -853,8 +1007,14 @@ function bubbleChart() {
     hideParagraph_00_05_categories();
     hideParagraph_06_11_categories();
     // hideParagraph_12_Present_categories();
+    hideCompanies_00_05()
+    hideCompanies_06_11()
+    hideCompanies_12_Present()
+    hideCategories_00_05()
+    hideCategories_06_11()
+    // hideCategories_12_Present()
     showParagraph_12_Present_categories();
-    showCategories();
+    showCategories_12_Present();
 
     force.on('tick', function (e) {
       bubbles.each(moveToCategories(e.alpha))
@@ -924,6 +1084,75 @@ function bubbleChart() {
       .text(function (d) { return d; });
   }
 
+
+  function showCompanies_00_05() {
+    // Another way to do this would be to create
+    // the year texts once and then just hide them.
+    var yearsData = d3.keys(company_00_05_TitleX);
+
+    var years = svg.selectAll('.year')
+      .data(yearsData);
+
+    years.enter().append('text')
+      .attr('class', 'year_00_05')
+      .attr('x', function (d) { return company_00_05_TitleX[d]; })
+      .attr('y', 40)
+      .attr('text-anchor', 'middle')
+      .text(function (d) { return d; });
+  }
+
+  function hideCompanies_00_05() {
+    svg.selectAll('.year_00_05').remove();
+  }
+
+  function showCompanies_06_11() {
+    // Another way to do this would be to create
+    // the year texts once and then just hide them.
+    var yearsData = d3.keys(company_06_11_TitleX);
+
+    var years = svg.selectAll('.year')
+      .data(yearsData);
+
+    years.enter().append('text')
+      .attr('class', 'year_06_11')
+      .attr('x', function (d) { return company_06_11_TitleX[d]; })
+      .attr('y', 40)
+      .attr('text-anchor', 'middle')
+      .text(function (d) { return d; });
+  }
+
+  function hideCompanies_06_11() {
+    svg.selectAll('.year_06_11').remove();
+  }
+
+  function showCompanies_12_Present() {
+    // Another way to do this would be to create
+    // the year texts once and then just hide them.
+    var yearsData = d3.keys(company_12_Present_TitleX);
+
+    var years = svg.selectAll('.year')
+      .data(yearsData);
+
+    years.enter().append('text')
+      .attr('class', 'year_12_Present')
+      .attr('x', function (d) { return company_12_Present_TitleX[d]; })
+      .attr('y', 40)
+      .attr('text-anchor', 'middle')
+      .text(function (d) { return d; });
+  }
+
+  function hideCompanies_12_Present() {
+    svg.selectAll('.year_12_Present').remove();
+  }
+
+
+
+
+
+
+
+
+
   function showCategories() {
     // pulls text from button 
     var categoryData = d3.keys(categoryTitleX);
@@ -939,6 +1168,87 @@ function bubbleChart() {
       .text(function (d) { return d; });
   }
 
+  function hideCategories() {
+    svg.selectAll('.category').remove();
+  }
+
+  function showCategories_00_05() {
+    // Another way to do this would be to create
+    // the year texts once and then just hide them.
+    var categoryData = d3.keys(category_00_05_TitleX);
+
+    var years = svg.selectAll('.category')
+      .data(categoryData);
+
+    years.enter().append('text')
+      .attr('class', 'category_00_05')
+      .attr('x', function (d) { return category_00_05_TitleX[d]; })
+      .attr('y', 40)
+      .attr('text-anchor', 'middle')
+      .text(function (d) { return d; });
+  }
+
+  function hideCategories_00_05() {
+    svg.selectAll('.category_00_05').remove();
+  }
+
+  function showCategories_06_11() {
+    // Another way to do this would be to create
+    // the year texts once and then just hide them.
+    var categoryData = d3.keys(category_06_11_TitleX);
+
+    var years = svg.selectAll('.category')
+      .data(categoryData);
+
+    years.enter().append('text')
+      .attr('class', 'category_06_11')
+      .attr('x', function (d) { return category_06_11_TitleX[d]; })
+      .attr('y', 40)
+      .attr('text-anchor', 'middle')
+      .text(function (d) { return d; });
+  }
+
+  function hideCategories_06_11() {
+    svg.selectAll('.category_06_11').remove();
+  }
+
+  function showCategories_12_Present() {
+    // Another way to do this would be to create
+    // the year texts once and then just hide them.
+    var categoryData = d3.keys(category_12_Present_TitleX);
+
+    var years = svg.selectAll('.category')
+      .data(categoryData);
+
+    years.enter().append('text')
+      .attr('class', 'category_12_Present')
+      .attr('x', function (d) { return category_12_Present_TitleX[d]; })
+      .attr('y', 40)
+      .attr('text-anchor', 'middle')
+      .text(function (d) { return d; });
+  }
+
+  function hideCategories_12_Present() {
+    svg.selectAll('.category_12_Present').remove();
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -953,7 +1263,7 @@ function bubbleChart() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_all')
         .attr('x', function (d) { return paragraph_all_TitleX[d];})
-        .attr('y', 500)
+        .attr('y', 400)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; });
   }
@@ -973,7 +1283,7 @@ function bubbleChart() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_00_05')
         .attr('x', function (d) { return paragraph_00_05_TitleX[d];})
-        .attr('y', 500)
+        .attr('y', 400)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; });
   }
@@ -992,7 +1302,7 @@ function bubbleChart() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_06_11')
         .attr('x', function (d) { return paragraph_06_11_TitleX[d];})
-        .attr('y', 500)
+        .attr('y', 400)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; });
   }
@@ -1011,7 +1321,7 @@ function bubbleChart() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_12_Present')
         .attr('x', function (d) { return paragraph_12_Present_TitleX[d];})
-        .attr('y', 500)
+        .attr('y', 400)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; });
   }
@@ -1031,7 +1341,7 @@ function showParagraph_all_companies() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_all_companies')
         .attr('x', function (d) { return paragraph_all_companies[d];})
-        .attr('y', 500)
+        .attr('y', 400)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; });
   }
@@ -1050,7 +1360,7 @@ function showParagraph_all_companies() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_00_05_companies')
         .attr('x', function (d) { return paragraph_00_05_companies[d];})
-        .attr('y', 500)
+        .attr('y', 400)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; });
   }
@@ -1070,7 +1380,7 @@ function showParagraph_all_companies() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_06_11_companies')
         .attr('x', function (d) { return paragraph_06_11_companies[d];})
-        .attr('y', 500)
+        .attr('y', 400)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; });
   }
@@ -1090,7 +1400,7 @@ function showParagraph_all_companies() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_12_Present_companies')
         .attr('x', function (d) { return paragraph_12_Present_companies[d];})
-        .attr('y', 500)
+        .attr('y', 400)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; });
   }
@@ -1111,7 +1421,7 @@ function showParagraph_all_categories() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_all_categories')
         .attr('x', function (d) { return paragraph_all_categories[d];})
-        .attr('y', 500)
+        .attr('y', 400)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; });
   }
@@ -1130,7 +1440,7 @@ function showParagraph_all_categories() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_00_05_categories')
         .attr('x', function (d) { return paragraph_00_05_categories[d];})
-        .attr('y', 500)
+        .attr('y', 400)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; });
   }
@@ -1150,7 +1460,7 @@ function showParagraph_all_categories() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_06_11_categories')
         .attr('x', function (d) { return paragraph_06_11_categories[d];})
-        .attr('y', 500)
+        .attr('y', 400)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; });
   }
@@ -1170,7 +1480,7 @@ function showParagraph_all_categories() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_12_Present_categories')
         .attr('x', function (d) { return paragraph_12_Present_categories[d];})
-        .attr('y', 500)
+        .attr('y', 400)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; });
   }
@@ -1179,9 +1489,6 @@ function showParagraph_all_categories() {
     svg.selectAll('.paragraph_12_Present_categories').remove();
   }
 
-  function hideCategories() {
-    svg.selectAll('.category').remove();
-  }
 
 
   /*

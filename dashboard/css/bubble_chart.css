@@ -41,7 +41,43 @@ a, a:visited, a:active {
   cursor: default;
 }
 
+.year_00_05 {
+  font-size: 21px;
+  fill: #aaa;
+  cursor: default;
+}
+
+.year_06_11 {
+  font-size: 21px;
+  fill: #aaa;
+  cursor: default;
+}
+
+.year_12_Present {
+  font-size: 21px;
+  fill: #aaa;
+  cursor: default;
+}
+
 .category {
+  font-size: 21px;
+  fill: #aaa;
+  cursor: default;
+}
+
+.category_00_05 {
+  font-size: 21px;
+  fill: #aaa;
+  cursor: default;
+}
+
+.category_06_11 {
+  font-size: 21px;
+  fill: #aaa;
+  cursor: default;
+}
+
+.category_12_Present {
   font-size: 21px;
   fill: #aaa;
   cursor: default;
@@ -70,6 +106,70 @@ a, a:visited, a:active {
   fill: #aaa;
   cursor: default;
 }
+
+
+.paragraph_all_companies {
+  font-size: 21px;
+  fill: #aaa;
+  cursor: default;
+}
+
+.paragraph_00_05_companies {
+  font-size: 21px;
+  fill: #aaa;
+  cursor: default;
+}
+
+.paragraph_06_11_companies {
+  font-size: 21px;
+  fill: #aaa;
+  cursor: default;
+}
+
+.paragraph_12_Present_companies {
+  font-size: 21px;
+  fill: #aaa;
+  cursor: default;
+}
+
+
+.paragraph_all_categories {
+  font-size: 21px;
+  fill: #aaa;
+  cursor: default;
+}
+
+.paragraph_00_05_categories {
+  font-size: 21px;
+  fill: #aaa;
+  cursor: default;
+}
+
+.paragraph_06_11_categories {
+  font-size: 21px;
+  fill: #aaa;
+  cursor: default;
+}
+
+.paragraph_12_Present_categories {
+  font-size: 21px;
+  fill: #aaa;
+  cursor: default;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .tooltip {
 	position: absolute;
