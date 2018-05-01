@@ -49,8 +49,109 @@ function bubbleChart() {
     'Microsoft': 1190
   };
 
+// X locations of the paragraph write-ups.
+// NOT CATEGORIES OR COMPANY
+  var paragraph_all_TitleX = {
+    'Amazon_all': 120,
+    'Apple_all': 370,
+    'Facebook_all': 590,
+    'Google_all': 870,
+    'Microsoft_all': 1190
+  };
 
-var categoryCenters = {
+  var paragraph_00_05_TitleX = {
+    'Amazon_00_05': 120,
+    'Apple_00_05': 370,
+    'Facebook_00_05': 590,
+    'Google_00_05': 870,
+    'Microsoft_00_05': 1190
+  };
+
+  var paragraph_06_11_TitleX = {
+    'Amazon_06_11': 120,
+    'Apple_06_11': 370,
+    'Facebook_06_11': 590,
+    'Google_06_11': 870,
+    'Microsoft_06_11': 1190
+  };
+
+  var paragraph_12_Present_TitleX = {
+    'Amazon_12_Present': 120,
+    'Apple_12_Present': 370,
+    'Facebook_12_Present': 590,
+    'Google_12_Present': 870,
+    'Microsoft_12_Present': 1190
+  };
+
+  // COMPANIES
+  var paragraph_all_companies = {
+    'Amazon_all_companies': 120,
+    'Apple_all_companies': 370,
+    'Facebook_all_companies': 590,
+    'Google_all_companies': 870,
+    'Microsoft_all_companies': 1190
+  };
+
+  var paragraph_00_05_companies = {
+    'Amazon_00_05_companies': 120,
+    'Apple_00_05_companies': 370,
+    'Facebook_00_05_companies': 590,
+    'Google_00_05_companies': 870,
+    'Microsoft_00_05_companies': 1190
+  };
+
+  var paragraph_06_11_companies = {
+    'Amazon_06_11_companies': 120,
+    'Apple_06_11_companies': 370,
+    'Facebook_06_11_companies': 590,
+    'Google_06_11_companies': 870,
+    'Microsoft_06_11_companies': 1190
+  };
+
+  var paragraph_12_Present_companies = {
+    'Amazon_12_Present_companies': 120,
+    'Apple_12_Present_companies': 370,
+    'Facebook_12_Present_companies': 590,
+    'Google_12_Present_companies': 870,
+    'Microsoft_12_Present_companies': 1190
+  };
+
+  // CATEGORIES
+  var paragraph_all_categories = {
+    'Amazon_all_category': 120,
+    'Apple_all_category': 370,
+    'Facebook_all_category': 590,
+    'Google_all_category': 870,
+    'Microsoft_all_category': 1190
+  };
+
+  var paragraph_00_05_categories = {
+    'Amazon_00_05_category': 120,
+    'Apple_00_05_category': 370,
+    'Facebook_00_05_category': 590,
+    'Google_00_05_category': 870,
+    'Microsoft_00_05_category': 1190
+  };
+
+  var paragraph_06_11_categories = {
+    'Amazon_06_11_category': 120,
+    'Apple_06_11_category': 370,
+    'Facebook_06_11_category': 590,
+    'Google_06_11_category': 870,
+    'Microsoft_06_11_category': 1190
+  };
+
+  var paragraph_12_Present_categories = {
+    'Amazon_12_Present_category': 120,
+    'Apple_12_Present_category': 370,
+    'Facebook_12_Present_category': 590,
+    'Google_12_Present_category': 870,
+    'Microsoft_12_Present_category': 1190
+  };
+
+// **************
+
+  var categoryCenters = {
     'AI/ML/Analytics': { x: (width / 7)*1 +30, y: height / 2 - 50},
     'AR/VR': { x: (width / 7)*2, y: height / 2 - 50 },
     'Hardware': { x: (width / 7)*3, y: height / 2 - 50},
@@ -239,10 +340,11 @@ var categoryCenters = {
 
     // Set initial layout to single group.
     groupBubbles(); 
+    showParagraph_all();
 
 
      d3.select('#year00-05').on('click', function (event) {
-        
+
         rawData = data_dict['2000-2005']
 
         nodes = createNodes(rawData);
@@ -275,7 +377,21 @@ var categoryCenters = {
           .attr('r', function (d) { return d.radius; });
 
         // Set initial layout to single group.
-        groupBubbles(); 
+        groupBubbles();
+          hideCompanies();
+          hideParagraph_all();
+          // hideParagraph_00_05();
+          hideParagraph_06_11();
+          hideParagraph_12_Present();
+          hideParagraph_all_companies();
+          hideParagraph_00_05_companies();
+          hideParagraph_06_11_companies();
+          hideParagraph_12_Present_companies();
+          hideParagraph_all_categories();
+          hideParagraph_00_05_categories();
+          hideParagraph_06_11_categories();
+          hideParagraph_12_Present_categories();
+          showParagraph_00_05();
       });
 
      d3.select('#year06-11').on('click', function (event) {
@@ -312,7 +428,21 @@ var categoryCenters = {
           .attr('r', function (d) { return d.radius; });
 
         // Set initial layout to single group.
-        groupBubbles(); 
+        groupBubbles();
+          hideCompanies();
+          hideParagraph_all();
+          hideParagraph_00_05();
+          // hideParagraph_06_11();
+          hideParagraph_12_Present();
+          hideParagraph_all_companies();
+          hideParagraph_00_05_companies();
+          hideParagraph_06_11_companies();
+          hideParagraph_12_Present_companies();
+          hideParagraph_all_categories();
+          hideParagraph_00_05_categories();
+          hideParagraph_06_11_categories();
+          hideParagraph_12_Present_categories();
+          showParagraph_06_11();
       });
 
      d3.select('#year12-Present').on('click', function (event) {
@@ -349,7 +479,21 @@ var categoryCenters = {
           .attr('r', function (d) { return d.radius; });
 
         // Set initial layout to single group.
-        groupBubbles(); 
+        groupBubbles();
+          hideCompanies();
+          hideParagraph_all();
+          hideParagraph_00_05();
+          hideParagraph_06_11();
+          // hideParagraph_12_Present();
+          hideParagraph_all_companies();
+          hideParagraph_00_05_companies();
+          hideParagraph_06_11_companies();
+          hideParagraph_12_Present_companies();
+          hideParagraph_all_categories();
+          hideParagraph_00_05_categories();
+          hideParagraph_06_11_categories();
+          hideParagraph_12_Present_categories();
+          showParagraph_12_Present();
       });
 
      d3.select('#all').on('click', function (event) {
@@ -386,7 +530,21 @@ var categoryCenters = {
           .attr('r', function (d) { return d.radius; });
 
         // Set initial layout to single group.
-        groupBubbles(); 
+        groupBubbles();
+          hideCompanies();
+          // hideParagraph_all();
+          hideParagraph_00_05();
+          hideParagraph_06_11();
+          hideParagraph_12_Present();
+          hideParagraph_all_companies();
+          hideParagraph_00_05_companies();
+          hideParagraph_06_11_companies();
+          hideParagraph_12_Present_companies();
+          hideParagraph_all_categories();
+          hideParagraph_00_05_categories();
+          hideParagraph_06_11_categories();
+          hideParagraph_12_Present_categories();
+          showParagraph_all();
       });
 
 
@@ -402,8 +560,9 @@ var categoryCenters = {
    * center of the visualization.
    */
   function groupBubbles() {
-    hideYears();
+    hideCompanies();
     hideCategories();
+
 
     force.on('tick', function (e) {
       bubbles.each(moveToCenter(e.alpha))
@@ -442,8 +601,72 @@ var categoryCenters = {
    * yearCenter of their data's year.
    */
   function splitBubbles() {
-    showYears();
     hideCategories();
+    hideParagraph_all();
+    hideParagraph_00_05();
+    hideParagraph_06_11();
+    hideParagraph_12_Present();
+    hideParagraph_all_companies();
+    hideParagraph_00_05_companies();
+    hideParagraph_06_11_companies();
+    hideParagraph_12_Present_companies();
+    hideParagraph_all_categories();
+    hideParagraph_00_05_categories();
+    hideParagraph_06_11_categories();
+    hideParagraph_12_Present_categories();
+    showCompanies();
+
+    force.on('tick', function (e) {
+      bubbles.each(moveToYears(e.alpha))
+        .attr('cx', function (d) { return d.x; })
+        .attr('cy', function (d) { return d.y; });
+    });
+
+    force.start();
+  }
+
+  function splitBubbles_all() {
+    hideCategories();
+    hideParagraph_all();
+    hideParagraph_00_05();
+    hideParagraph_06_11();
+    hideParagraph_12_Present();
+    // hideParagraph_all_companies();
+    hideParagraph_00_05_companies();
+    hideParagraph_06_11_companies();
+    hideParagraph_12_Present_companies();
+    hideParagraph_all_categories();
+    hideParagraph_00_05_categories();
+    hideParagraph_06_11_categories();
+    hideParagraph_12_Present_categories();
+    showParagraph_all_companies();
+    showCompanies();
+
+    force.on('tick', function (e) {
+      bubbles.each(moveToYears(e.alpha))
+        .attr('cx', function (d) { return d.x; })
+        .attr('cy', function (d) { return d.y; });
+    });
+
+    force.start();
+  }
+
+  function splitBubbles_00_05() {
+    hideCategories();
+    hideParagraph_all();
+    hideParagraph_00_05();
+    hideParagraph_06_11();
+    hideParagraph_12_Present();
+    hideParagraph_all_companies();
+    // hideParagraph_00_05_companies();
+    hideParagraph_06_11_companies();
+    hideParagraph_12_Present_companies();
+    hideParagraph_all_categories();
+    hideParagraph_00_05_categories();
+    hideParagraph_06_11_categories();
+    hideParagraph_12_Present_categories();
+    showParagraph_00_05_companies();
+    showCompanies();
 
     force.on('tick', function (e) {
       bubbles.each(moveToYears(e.alpha))
@@ -455,8 +678,78 @@ var categoryCenters = {
   }
 
 
+  function splitBubbles_06_11() {
+    hideCategories();
+    hideParagraph_all();
+    hideParagraph_00_05();
+    hideParagraph_06_11();
+    hideParagraph_12_Present();
+    hideParagraph_all_companies();
+    hideParagraph_00_05_companies();
+    // hideParagraph_06_11_companies();
+    hideParagraph_12_Present_companies();
+    hideParagraph_all_categories();
+    hideParagraph_00_05_categories();
+    hideParagraph_06_11_categories();
+    hideParagraph_12_Present_categories();
+    showParagraph_06_11_companies();
+    showCompanies();
+
+    force.on('tick', function (e) {
+      bubbles.each(moveToYears(e.alpha))
+        .attr('cx', function (d) { return d.x; })
+        .attr('cy', function (d) { return d.y; });
+    });
+
+    force.start();
+  }
+
+
+    function splitBubbles_12_Present() {
+    hideCategories();
+    hideParagraph_all();
+    hideParagraph_00_05();
+    hideParagraph_06_11();
+    hideParagraph_12_Present();
+    hideParagraph_all_companies();
+    hideParagraph_00_05_companies();
+    hideParagraph_06_11_companies();
+    // hideParagraph_12_Present_companies();
+    hideParagraph_all_categories();
+    hideParagraph_00_05_categories();
+    hideParagraph_06_11_categories();
+    hideParagraph_12_Present_categories();
+    showParagraph_12_Present_companies();
+    showCompanies();
+
+    force.on('tick', function (e) {
+      bubbles.each(moveToYears(e.alpha))
+        .attr('cx', function (d) { return d.x; })
+        .attr('cy', function (d) { return d.y; });
+    });
+
+    force.start();
+  }
+
+
+  // 
+
+
   function splitBubblesCategories() {
-    hideYears();
+    hideCompanies();
+    hideParagraph_all();
+    hideParagraph_00_05();
+    hideParagraph_06_11();
+    hideParagraph_12_Present();
+    hideParagraph_all_companies();
+    hideParagraph_00_05_companies();
+    hideParagraph_06_11_companies();
+    hideParagraph_12_Present_companies();
+    hideParagraph_all_categories();
+    hideParagraph_00_05_categories();
+    hideParagraph_06_11_categories();
+    hideParagraph_12_Present_categories();
+    // showParagraph_all_categories();
     showCategories();
 
     force.on('tick', function (e) {
@@ -467,6 +760,112 @@ var categoryCenters = {
 
     force.start();
   }
+
+  function splitBubblesCategories_all() {
+    hideCompanies();
+    hideParagraph_all();
+    hideParagraph_00_05();
+    hideParagraph_06_11();
+    hideParagraph_12_Present();
+    hideParagraph_all_companies();
+    hideParagraph_00_05_companies();
+    hideParagraph_06_11_companies();
+    hideParagraph_12_Present_companies();
+    // hideParagraph_all_categories();
+    hideParagraph_00_05_categories();
+    hideParagraph_06_11_categories();
+    hideParagraph_12_Present_categories();
+    showParagraph_all_categories();
+    showCategories();
+
+    force.on('tick', function (e) {
+      bubbles.each(moveToCategories(e.alpha))
+        .attr('cx', function (d) { return d.x; })
+        .attr('cy', function (d) { return d.y; });
+    });
+
+    force.start();
+  }
+
+  function splitBubblesCategories_00_05() {
+    hideCompanies();
+    hideParagraph_all();
+    hideParagraph_00_05();
+    hideParagraph_06_11();
+    hideParagraph_12_Present();
+    hideParagraph_all_companies();
+    hideParagraph_00_05_companies();
+    hideParagraph_06_11_companies();
+    hideParagraph_12_Present_companies();
+    hideParagraph_all_categories();
+    // hideParagraph_00_05_categories();
+    hideParagraph_06_11_categories();
+    hideParagraph_12_Present_categories();
+    showParagraph_00_05_categories();
+    showCategories();
+
+    force.on('tick', function (e) {
+      bubbles.each(moveToCategories(e.alpha))
+        .attr('cx', function (d) { return d.x; })
+        .attr('cy', function (d) { return d.y; });
+    });
+
+    force.start();
+  }
+
+  function splitBubblesCategories_06_11() {
+    hideCompanies();
+    hideParagraph_all();
+    hideParagraph_00_05();
+    hideParagraph_06_11();
+    hideParagraph_12_Present();
+    hideParagraph_all_companies();
+    hideParagraph_00_05_companies();
+    hideParagraph_06_11_companies();
+    hideParagraph_12_Present_companies();
+    hideParagraph_all_categories();
+    hideParagraph_00_05_categories();
+    // hideParagraph_06_11_categories();
+    hideParagraph_12_Present_categories();
+    showParagraph_06_11_categories();
+    showCategories();
+
+    force.on('tick', function (e) {
+      bubbles.each(moveToCategories(e.alpha))
+        .attr('cx', function (d) { return d.x; })
+        .attr('cy', function (d) { return d.y; });
+    });
+
+    force.start();
+  }
+
+  function splitBubblesCategories_12_Present() {
+    hideCompanies();
+    hideParagraph_all();
+    hideParagraph_00_05();
+    hideParagraph_06_11();
+    hideParagraph_12_Present();
+    hideParagraph_all_companies();
+    hideParagraph_00_05_companies();
+    hideParagraph_06_11_companies();
+    hideParagraph_12_Present_companies();
+    hideParagraph_all_categories();
+    hideParagraph_00_05_categories();
+    hideParagraph_06_11_categories();
+    // hideParagraph_12_Present_categories();
+    showParagraph_12_Present_categories();
+    showCategories();
+
+    force.on('tick', function (e) {
+      bubbles.each(moveToCategories(e.alpha))
+        .attr('cx', function (d) { return d.x; })
+        .attr('cy', function (d) { return d.y; });
+    });
+
+    force.start();
+  }
+
+
   /*
    * Helper function for "split by year mode".
    * Returns a function that takes the data for a
@@ -486,7 +885,6 @@ var categoryCenters = {
       var target = companyCenters[d.org];
       d.x = d.x + (target.x - d.x) * damper * alpha * 1.1;
       d.y = d.y + (target.y - d.y) * damper * alpha * 1.1;
-
     };
   }
 
@@ -503,14 +901,14 @@ var categoryCenters = {
   /*
    * Hides Year title displays.
    */
-  function hideYears() {
+  function hideCompanies() {
     svg.selectAll('.year').remove();
   }
 
   /*
    * Shows Year title displays.
    */
-  function showYears() {
+  function showCompanies() {
     // Another way to do this would be to create
     // the year texts once and then just hide them.
     var yearsData = d3.keys(companyTitleX);
@@ -526,14 +924,12 @@ var categoryCenters = {
       .text(function (d) { return d; });
   }
 
-
   function showCategories() {
-    // Another way to do this would be to create
-    // the year texts once and then just hide them.
-    var yearsData = d3.keys(categoryTitleX);
+    // pulls text from button 
+    var categoryData = d3.keys(categoryTitleX);
 
-    var years = svg.selectAll('.year')
-      .data(yearsData);
+    var years = svg.selectAll('.category')
+      .data(categoryData);
 
     years.enter().append('text')
       .attr('class', 'category')
@@ -541,6 +937,246 @@ var categoryCenters = {
       .attr('y', 40)
       .attr('text-anchor', 'middle')
       .text(function (d) { return d; });
+  }
+
+
+
+
+// PARAGRAPH DISPLAYS !!!!!!
+  function showParagraph_all() {
+    // pulls text from button 
+    var paragraphData = d3.keys(paragraph_all_TitleX);
+
+    var paragraph = svg.selectAll('.paragraph')
+      .data(paragraphData);
+
+    paragraph.enter().append('text')
+        .attr('class', 'paragraph_all')
+        .attr('x', function (d) { return paragraph_all_TitleX[d];})
+        .attr('y', 500)
+        .attr('text-anchor', 'middle')
+        .text(function (d) { return d; });
+  }
+
+  function hideParagraph_all() {
+    svg.selectAll('.paragraph_all').remove();
+  }
+
+
+  function showParagraph_00_05() {
+    // pulls text from button 
+    var paragraphData = d3.keys(paragraph_00_05_TitleX);
+
+    var paragraph = svg.selectAll('.paragraph')
+      .data(paragraphData);
+
+    paragraph.enter().append('text')
+        .attr('class', 'paragraph_00_05')
+        .attr('x', function (d) { return paragraph_00_05_TitleX[d];})
+        .attr('y', 500)
+        .attr('text-anchor', 'middle')
+        .text(function (d) { return d; });
+  }
+
+  function hideParagraph_00_05() {
+    svg.selectAll('.paragraph_00_05').remove();
+  }
+
+  function showParagraph_06_11() {
+    // pulls text from button 
+    var paragraphData = d3.keys(paragraph_06_11_TitleX);
+
+    var paragraph = svg.selectAll('.paragraph')
+      .data(paragraphData);
+
+    paragraph.enter().append('text')
+        .attr('class', 'paragraph_06_11')
+        .attr('x', function (d) { return paragraph_06_11_TitleX[d];})
+        .attr('y', 500)
+        .attr('text-anchor', 'middle')
+        .text(function (d) { return d; });
+  }
+
+  function hideParagraph_06_11() {
+    svg.selectAll('.paragraph_06_11').remove();
+  }
+
+  function showParagraph_12_Present() {
+    // pulls text from button 
+    var paragraphData = d3.keys(paragraph_12_Present_TitleX);
+
+    var paragraph = svg.selectAll('.paragraph')
+      .data(paragraphData);
+
+    paragraph.enter().append('text')
+        .attr('class', 'paragraph_12_Present')
+        .attr('x', function (d) { return paragraph_12_Present_TitleX[d];})
+        .attr('y', 500)
+        .attr('text-anchor', 'middle')
+        .text(function (d) { return d; });
+  }
+
+  function hideParagraph_12_Present() {
+    svg.selectAll('.paragraph_12_Present').remove();
+  }
+
+// COMPANIES
+function showParagraph_all_companies() {
+    // pulls text from button 
+    var paragraphData = d3.keys(paragraph_all_companies);
+
+    var paragraph = svg.selectAll('.paragraph')
+      .data(paragraphData);
+
+    paragraph.enter().append('text')
+        .attr('class', 'paragraph_all_companies')
+        .attr('x', function (d) { return paragraph_all_companies[d];})
+        .attr('y', 500)
+        .attr('text-anchor', 'middle')
+        .text(function (d) { return d; });
+  }
+
+  function hideParagraph_all_companies() {
+    svg.selectAll('.paragraph_all_companies').remove();
+  }
+// 00-05
+  function showParagraph_00_05_companies() {
+    // pulls text from button 
+    var paragraphData = d3.keys(paragraph_00_05_companies);
+
+    var paragraph = svg.selectAll('.paragraph')
+      .data(paragraphData);
+
+    paragraph.enter().append('text')
+        .attr('class', 'paragraph_00_05_companies')
+        .attr('x', function (d) { return paragraph_00_05_companies[d];})
+        .attr('y', 500)
+        .attr('text-anchor', 'middle')
+        .text(function (d) { return d; });
+  }
+
+  function hideParagraph_00_05_companies() {
+    svg.selectAll('.paragraph_00_05_companies').remove();
+  }
+
+// 06-11
+  function showParagraph_06_11_companies() {
+    // pulls text from button 
+    var paragraphData = d3.keys(paragraph_06_11_companies);
+
+    var paragraph = svg.selectAll('.paragraph')
+      .data(paragraphData);
+
+    paragraph.enter().append('text')
+        .attr('class', 'paragraph_06_11_companies')
+        .attr('x', function (d) { return paragraph_06_11_companies[d];})
+        .attr('y', 500)
+        .attr('text-anchor', 'middle')
+        .text(function (d) { return d; });
+  }
+
+  function hideParagraph_06_11_companies() {
+    svg.selectAll('.paragraph_06_11_companies').remove();
+  }
+
+// 12-Present
+  function showParagraph_12_Present_companies() {
+    // pulls text from button 
+    var paragraphData = d3.keys(paragraph_12_Present_companies);
+
+    var paragraph = svg.selectAll('.paragraph')
+      .data(paragraphData);
+
+    paragraph.enter().append('text')
+        .attr('class', 'paragraph_12_Present_companies')
+        .attr('x', function (d) { return paragraph_12_Present_companies[d];})
+        .attr('y', 500)
+        .attr('text-anchor', 'middle')
+        .text(function (d) { return d; });
+  }
+
+  function hideParagraph_12_Present_companies() {
+    svg.selectAll('.paragraph_12_Present_companies').remove();
+  }
+
+
+// CATEGORIES
+function showParagraph_all_categories() {
+    // pulls text from button 
+    var paragraphData = d3.keys(paragraph_all_categories);
+
+    var paragraph = svg.selectAll('.paragraph')
+      .data(paragraphData);
+
+    paragraph.enter().append('text')
+        .attr('class', 'paragraph_all_categories')
+        .attr('x', function (d) { return paragraph_all_categories[d];})
+        .attr('y', 500)
+        .attr('text-anchor', 'middle')
+        .text(function (d) { return d; });
+  }
+
+  function hideParagraph_all_categories() {
+    svg.selectAll('.paragraph_all_categories').remove();
+  }
+// 00-05
+  function showParagraph_00_05_categories() {
+    // pulls text from button 
+    var paragraphData = d3.keys(paragraph_00_05_categories);
+
+    var paragraph = svg.selectAll('.paragraph')
+      .data(paragraphData);
+
+    paragraph.enter().append('text')
+        .attr('class', 'paragraph_00_05_categories')
+        .attr('x', function (d) { return paragraph_00_05_categories[d];})
+        .attr('y', 500)
+        .attr('text-anchor', 'middle')
+        .text(function (d) { return d; });
+  }
+
+  function hideParagraph_00_05_categories() {
+    svg.selectAll('.paragraph_00_05_categories').remove();
+  }
+
+// 06-11
+  function showParagraph_06_11_categories() {
+    // pulls text from button 
+    var paragraphData = d3.keys(paragraph_06_11_categories);
+
+    var paragraph = svg.selectAll('.paragraph')
+      .data(paragraphData);
+
+    paragraph.enter().append('text')
+        .attr('class', 'paragraph_06_11_categories')
+        .attr('x', function (d) { return paragraph_06_11_categories[d];})
+        .attr('y', 500)
+        .attr('text-anchor', 'middle')
+        .text(function (d) { return d; });
+  }
+
+  function hideParagraph_06_11_categories() {
+    svg.selectAll('.paragraph_06_11_categories').remove();
+  }
+
+// 12-Present
+  function showParagraph_12_Present_categories() {
+    // pulls text from button 
+    var paragraphData = d3.keys(paragraph_12_Present_categories);
+
+    var paragraph = svg.selectAll('.paragraph')
+      .data(paragraphData);
+
+    paragraph.enter().append('text')
+        .attr('class', 'paragraph_12_Present_categories')
+        .attr('x', function (d) { return paragraph_12_Present_categories[d];})
+        .attr('y', 500)
+        .attr('text-anchor', 'middle')
+        .text(function (d) { return d; });
+  }
+
+  function hideParagraph_12_Present_categories() {
+    svg.selectAll('.paragraph_12_Present_categories').remove();
   }
 
   function hideCategories() {
@@ -586,14 +1222,52 @@ var categoryCenters = {
    *
    * displayName is expected to be a string and either 'year' or 'all'.
    */
-  chart.toggleDisplay = function (displayName) {
-    if (displayName == 'year') {
-      splitBubbles();
-    } else if (displayName =='category') {
-      splitBubblesCategories();
-    } else {
-      groupBubbles();
+  chart.toggleDisplay = function (displayName, selected) {
+    console.log("selected: ", selected);
+    console.log("display: ", displayName);
+
+    var item1 = selected == 'all';
+    var item2 = displayName == 'year';
+    
+    console.log(item1);
+    console.log(item2);
+    console.log(selected == 'all' && displayName == 'year');
+
+    if (item1 && item2) {
+      console.log("WHY ISNT THIS WORKING");
     }
+    if (item1 && item2) {
+      console.log("WHY ISNT THIS WORKING");
+    }
+
+    if (selected == 'all' && displayName == 'year') {
+      splitBubbles_all();
+    }
+    if (selected == 'year00-05' && displayName == 'year') {
+      splitBubbles_00_05();
+    }
+    if (selected == 'year06-11' && displayName == 'year') {
+      splitBubbles_06_11();
+    }
+    if (selected == 'year12-Present' && displayName == 'year') {
+      splitBubbles_12_Present();
+    }
+    if (selected == 'all' && displayName == 'category') {
+      splitBubblesCategories_all();
+    }
+    if (selected == 'year00-05' && displayName == 'category') {
+      splitBubblesCategories_00_05();
+    }
+    if (selected == 'year06-11' && displayName == 'category') {
+      splitBubblesCategories_06_11();
+    }
+    if (selected == 'year12-Present' && displayName == 'category') {
+      splitBubblesCategories_12_Present();
+    }
+    // else {
+    //   console.log('FALSE');
+    //   groupBubbles();
+    // }
   };
 
 
@@ -625,23 +1299,63 @@ function display(error, data) {
  */
 function setupButtons() {
   d3.select('#toolbar')
-    .selectAll('.button')
+    .selectAll('.bubble_button')
     .on('click', function () {
       // Remove active class from all buttons
-      d3.selectAll('.button').classed('active', false);
+      // d3.selectAll('.button').classed('active', false);
       // Find the button just clicked
+      var text = $('#year00-05').text();
+      var background = $('#year00-05').css('background-color');
+      console.log(text);
+      console.log(background);
+
+      
+      var selected = 'all';
+
+      if ($('#year00-05').css('background-color') == "rgb(0, 0, 0)") {
+        console.log(selected);
+        console.log("YESS 2005");
+        selected = 'year00-05';
+        console.log(selected);
+        // showParagraph_12_Present()
+      }
+      
+      if ($('#year06-11').css('background-color') == "rgb(0, 0, 0)") {
+        console.log(selected);
+        console.log("YESS 2011");
+        selected = 'year06-11';
+        console.log(selected);
+      }
+
+      if ($('#year12-Present').css('background-color') == "rgb(0, 0, 0)") {
+        console.log(selected);
+        console.log("YESS Present");
+        selected = 'year12-Present';
+        console.log(selected);
+      }
+
+      if ($('#all').css('background-color') == "rgb(0, 0, 0)") {
+        console.log(selected);
+        console.log("YESS all");
+        selected = 'all';
+        console.log(selected);
+      }
+
       var button = d3.select(this);
-      console.log(button);
+
+      // console.log('toggle', selected);
+      // console.log('active', active_button);
 
       // Set it as the active button
-      button.classed('active', true);
+      // button.classed('active', true);
 
       // Get the id of the button
       var buttonId = button.attr('id');
+      // console.log('id', buttonId);
 
       // Toggle the bubble chart based on
       // the currently clicked button.
-      myBubbleChart.toggleDisplay(buttonId);
+      myBubbleChart.toggleDisplay(buttonId, selected);
     });
 }
 
@@ -668,14 +1382,11 @@ d3.csv('data/AcquisitionDatabaseFinalFixed_bo.csv', display);
 // setup the buttons.
 setupButtons();
 
-
 // INTERACTIONS
 // Change color of selected buttons
 $('.bubble_button').on('click', function() {
   
-
   var selected = $(this).text();
-
 
       var activeStyle = {
       backgroundColor : "black",
@@ -688,8 +1399,8 @@ $('.bubble_button').on('click', function() {
       border: "1px solid #e0e0e0"
     };
 
-    console.log("hello");
-    console.log(selected);
+    // console.log("hello");
+    // console.log(selected);
 
   if (selected == '2000-2005'){
     $(this).css(activeStyle);
