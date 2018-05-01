@@ -287,7 +287,12 @@ function bubbleChart() {
   // Nice looking colors - no reason to buck the trend
   var fillColor = d3.scale.ordinal()
     .domain(['AI/ML/Analytics', 'Software', 'AR/VR', 'Hardware', 'Security', 'Media/Commerce/UserDB'])
-    .range(['red', 'beige', 'green', 'blue', 'aqua', 'gold']);
+    .range(['black', '#33FFCC', '#FF0000', '#FF9933', 'aqua', '#FF66CC']);
+
+
+  var fillColorCompanies = d3.scale.ordinal()
+    .domain(['Amazon', 'Apple', 'Facebook', 'Google', 'Microsoft'])
+    .range(['#E67E22', '#979A9A', '#3498DB', '#2ECC71', '#CB4335']);
 
   // Sizes bubbles based on their area instead of raw radius
   var radiusScale = d3.scale.pow()
@@ -667,7 +672,9 @@ function bubbleChart() {
     force.on('tick', function (e) {
       bubbles.each(moveToCenter(e.alpha))
         .attr('cx', function (d) { return d.x; })
-        .attr('cy', function (d) { return d.y; });
+        .attr('cy', function (d) { return d.y; })
+        .attr('fill', function (d) { return fillColor(d.group); })
+        .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); });
     });
 
     force.start();
@@ -725,7 +732,9 @@ function bubbleChart() {
     force.on('tick', function (e) {
       bubbles.each(moveToYears(e.alpha))
         .attr('cx', function (d) { return d.x; })
-        .attr('cy', function (d) { return d.y; });
+        .attr('cy', function (d) { return d.y; })
+        .attr('fill', function (d) { return fillColor(d.group); })
+        .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); });
     });
 
     force.start();
@@ -757,7 +766,9 @@ function bubbleChart() {
     force.on('tick', function (e) {
       bubbles.each(moveToYears(e.alpha))
         .attr('cx', function (d) { return d.x; })
-        .attr('cy', function (d) { return d.y; });
+        .attr('cy', function (d) { return d.y; })
+        .attr('fill', function (d) { return fillColor(d.group); })
+        .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); });
     });
 
     force.start();
@@ -789,7 +800,9 @@ function bubbleChart() {
     force.on('tick', function (e) {
       bubbles.each(moveToYears(e.alpha))
         .attr('cx', function (d) { return d.x; })
-        .attr('cy', function (d) { return d.y; });
+        .attr('cy', function (d) { return d.y; })
+        .attr('fill', function (d) { return fillColor(d.group); })
+        .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); });
     });
 
     force.start();
@@ -822,7 +835,9 @@ function bubbleChart() {
     force.on('tick', function (e) {
       bubbles.each(moveToYears(e.alpha))
         .attr('cx', function (d) { return d.x; })
-        .attr('cy', function (d) { return d.y; });
+        .attr('cy', function (d) { return d.y; })
+        .attr('fill', function (d) { return fillColor(d.group); })
+        .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); });
     });
 
     force.start();
@@ -855,7 +870,9 @@ function bubbleChart() {
     force.on('tick', function (e) {
       bubbles.each(moveToYears(e.alpha))
         .attr('cx', function (d) { return d.x; })
-        .attr('cy', function (d) { return d.y; });
+        .attr('cy', function (d) { return d.y; })
+        .attr('fill', function (d) { return fillColor(d.group); })
+        .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); });
     });
 
     force.start();
@@ -891,7 +908,9 @@ function bubbleChart() {
     force.on('tick', function (e) {
       bubbles.each(moveToCategories(e.alpha))
         .attr('cx', function (d) { return d.x; })
-        .attr('cy', function (d) { return d.y; });
+        .attr('cy', function (d) { return d.y; })
+        .attr('fill', function (d) { return fillColorCompanies(d.org); })
+        .attr('stroke', function (d) { return d3.rgb(fillColorCompanies(d.org)).darker(); });
     });
 
     force.start();
@@ -923,7 +942,9 @@ function bubbleChart() {
     force.on('tick', function (e) {
       bubbles.each(moveToCategories(e.alpha))
         .attr('cx', function (d) { return d.x; })
-        .attr('cy', function (d) { return d.y; });
+        .attr('cy', function (d) { return d.y; })
+        .attr('fill', function (d) { return fillColorCompanies(d.org); })
+        .attr('stroke', function (d) { return d3.rgb(fillColorCompanies(d.org)).darker(); });
     });
 
     force.start();
@@ -955,7 +976,9 @@ function bubbleChart() {
     force.on('tick', function (e) {
       bubbles.each(moveToCategories(e.alpha))
         .attr('cx', function (d) { return d.x; })
-        .attr('cy', function (d) { return d.y; });
+        .attr('cy', function (d) { return d.y; })
+        .attr('fill', function (d) { return fillColorCompanies(d.org); })
+        .attr('stroke', function (d) { return d3.rgb(fillColorCompanies(d.org)).darker(); });
     });
 
     force.start();
@@ -987,7 +1010,9 @@ function bubbleChart() {
     force.on('tick', function (e) {
       bubbles.each(moveToCategories(e.alpha))
         .attr('cx', function (d) { return d.x; })
-        .attr('cy', function (d) { return d.y; });
+        .attr('cy', function (d) { return d.y; })
+        .attr('fill', function (d) { return fillColorCompanies(d.org); })
+        .attr('stroke', function (d) { return d3.rgb(fillColorCompanies(d.org)).darker(); });
     });
 
     force.start();
@@ -1019,7 +1044,9 @@ function bubbleChart() {
     force.on('tick', function (e) {
       bubbles.each(moveToCategories(e.alpha))
         .attr('cx', function (d) { return d.x; })
-        .attr('cy', function (d) { return d.y; });
+        .attr('cy', function (d) { return d.y; })
+        .attr('fill', function (d) { return fillColorCompanies(d.org); })
+        .attr('stroke', function (d) { return d3.rgb(fillColorCompanies(d.org)).darker(); });
     });
 
     force.start();
@@ -1502,6 +1529,9 @@ function showParagraph_all_categories() {
     var content = '<span class="name">Company: </span><span class="value">' +
                   d.name +
                   '</span><br/>' +
+                  '<span class="name">Acquired by: </span><span class="value">' +
+                  d.org +
+                  '</span><br/>' +
                   '<span class="name">No. of employees: </span><span class="value">' +
                   addCommas(d.value) +
                   '+</span><br/>' +
@@ -1530,22 +1560,9 @@ function showParagraph_all_categories() {
    * displayName is expected to be a string and either 'year' or 'all'.
    */
   chart.toggleDisplay = function (displayName, selected) {
-    console.log("selected: ", selected);
-    console.log("display: ", displayName);
 
     var item1 = selected == 'all';
     var item2 = displayName == 'year';
-    
-    console.log(item1);
-    console.log(item2);
-    console.log(selected == 'all' && displayName == 'year');
-
-    if (item1 && item2) {
-      console.log("WHY ISNT THIS WORKING");
-    }
-    if (item1 && item2) {
-      console.log("WHY ISNT THIS WORKING");
-    }
 
     if (selected == 'all' && displayName == 'year') {
       splitBubbles_all();
@@ -1613,39 +1630,25 @@ function setupButtons() {
       // Find the button just clicked
       var text = $('#year00-05').text();
       var background = $('#year00-05').css('background-color');
-      console.log(text);
-      console.log(background);
 
       
       var selected = 'all';
 
       if ($('#year00-05').css('background-color') == "rgb(0, 0, 0)") {
-        console.log(selected);
-        console.log("YESS 2005");
         selected = 'year00-05';
-        console.log(selected);
         // showParagraph_12_Present()
       }
       
       if ($('#year06-11').css('background-color') == "rgb(0, 0, 0)") {
-        console.log(selected);
-        console.log("YESS 2011");
         selected = 'year06-11';
-        console.log(selected);
       }
 
       if ($('#year12-Present').css('background-color') == "rgb(0, 0, 0)") {
-        console.log(selected);
-        console.log("YESS Present");
         selected = 'year12-Present';
-        console.log(selected);
       }
 
       if ($('#all').css('background-color') == "rgb(0, 0, 0)") {
-        console.log(selected);
-        console.log("YESS all");
         selected = 'all';
-        console.log(selected);
       }
 
       var button = d3.select(this);
