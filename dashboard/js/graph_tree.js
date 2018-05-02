@@ -466,7 +466,7 @@ var big_5 = {
             .text(function (d) {
                 return d.name;
             })
-            .style("fill-opacity", 1e-6);
+            .style({'fill-opacity': 1e-6, 'fill': "white"});
 
         // Transition nodes to their new position.
         var nodeUpdate = node.transition()
@@ -482,7 +482,8 @@ var big_5 = {
             });
 
         nodeUpdate.select("text")
-            .style("fill-opacity", 1);
+           // .style("fill-opacity", 1)
+            .style({'fill-opacity': 1, 'fill': "white"});
 
         // Transition exiting nodes to the parent's new position.
         var nodeExit = node.exit().transition()
@@ -496,7 +497,7 @@ var big_5 = {
             .attr("r", 1e-6);
 
         nodeExit.select("text")
-            .style("fill-opacity", 1e-6);
+            .style({'fill-opacity': 1e-6, 'fill': "white"});
 
         // Update the links…
         var link = svg.selectAll("path.link")

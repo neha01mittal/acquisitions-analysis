@@ -19,6 +19,7 @@ $(function () {
     // Add area for points
     var graphArea = svg.append('g')
         .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
     var xScale;
     var yScale;
 
@@ -64,7 +65,7 @@ $(function () {
             return getRndInteger(20, 50);
         else if (step == 5)
             return getRndInteger(60, 80);
-        else if (step == 6 || step == 7) {
+        else if (step == 6 || step == 7 || step == 8) {
             if (acquiringCompany.toLowerCase() == 'google') {
                 return 8;
             }
@@ -78,6 +79,7 @@ $(function () {
             else if (acquiringCompany.toLowerCase() == 'facebook')
                 return 112;
         }
+
     }
 
     function getYCoordinate(cname, step) {
@@ -96,6 +98,8 @@ $(function () {
             return 10;
         else if (step == 7)
             return 3;
+        else if (step == 8)
+            return -8
 
     }
 
@@ -121,6 +125,7 @@ $(function () {
             .range([height, 0]);
 
         // adding scatter plot points
+
         var image = graphArea.selectAll('.image')
             .data(data);
 
@@ -128,25 +133,39 @@ $(function () {
             .append("svg:image")
             .attr('x', -9)
             .attr('y', -12)
-            .attr('width', 70)
-            .attr('height', 80)
-            //.attr("xlink:href", "pacman.png")
+            .attr('width', 80)
+            .attr('height', 90)
             .attr("xlink:href", function (d) {
                 if (d.BroadCategory == "AI/ML/Analytics") {
-                    return "pc1.png" //orange
+                    if (d.Company == 'Zappos')
+                        return "zappos@4x.png";
+                    if (d.Company == 'Beats Electronics')
+                        return "beats@4x.png";
                 }
                 else if (d.BroadCategory == "Software") {
-                    return "pc4.png" // green
+                    console.log('COMPANY', d.Company)
+                    if (d.Company == 'WhatsApp')
+                        return "whatsapp2@4x.png";
+                    if (d.Company == 'NeXT')
+                        return "pcNext@4x.png";
+                    if (d.Company == 'Siri')
+                        return "siri@4x.png";
+                    if (d.Company == 'Skype Technologies')
+                        return "skype@4x.png";
                 }
                 else if (d.BroadCategory == "Hardware") {
                     return "pc5.png" // yellow
                 }
                 else if (d.BroadCategory == "Media/Ad/Content") {
-                    return "pc3.png" // pink
-                } else if (d.BroadCategory == "Security") {
-                    return "pc2.png" // ignore
+                    console.log('COM', d.Company)
+                    if (d.Company == 'LinkedIn')
+                        return "linkedin4@4x.png";
+                    if (d.Company == 'YouTube')
+                        return "youtube@4x.png";
+                    if (d.Company == 'Whole Foods Market')
+                        return "wholefoods2@4x.png";
                 } else if (d.BroadCategory == "AR/VR") {
-                    return "pc2.png" // red
+                    return "occulus3@4x.png" // red
                 }
 
             })
@@ -161,21 +180,46 @@ $(function () {
                 return "acquired";// + d['Acquisition date'];
             });
 
+        //
         // image.append("text")
         //     .attr("dx", 5)
         //     .attr("dy", ".35em")
         //     .text('WORKRKRKR');
-
-        image.append("svg:text")
-            .attr("class", "nodetext")
-            .attr("dx", 12)
-            .attr("dy", ".35em")
-            .text(function(d) { return 'TESTTT' })
-
-            .style("font-family", function(d) { return d['font-family'];})
-            .style("font-size", function(d) { return d['font-size'];})
-            .style("stroke", 'red')
-            .style('fill', function(d) { return 'white';});
+        // var text = graphArea.append("svg:text")
+        //                    .data(data)
+        //                         .text(function (d) {
+        //                             return d.Company;
+        //                         })
+        //     .style('fill', function(d) { return 'red';})
+        //     .attr("x", function (d) {
+        //         return xScale(getXCoordinate(d.AcquiredBy, 5, 'founded'))
+        //
+        //     })
+        //     .attr("y", function (d) {
+        //         return yScale(getYCoordinate(d.AcquiredBy, 5, 'founded'))
+        //     })
+        //     .attr("class", function (d, i) {
+        //         return "acquired";// + d['Acquisition date'];
+        //     });
+        //
+        // var textLabels = text
+        //                  .attr("x", function(d) { return 20; })
+        //                  .attr("y", function(d) { return 70; })
+        //                  .text( function (d) { return "TESTTT"; })
+        //                  .attr("font-family", "sans-serif")
+        //                  .attr("font-size", "20px")
+        //                  .attr("fill", "red");
+        //
+        // svg.append("svg:text")
+        //     .attr("class", "nodetext")
+        //     .attr("dx", 12)
+        //     .attr("dy", ".35em")
+        //     .text(function(d) { return 'TESTTT' })
+        //
+        //     .style("font-family", function(d) { return d['font-family'];})
+        //     .style("font-size", function(d) { return d['font-size'];})
+        //     .style("stroke", 'red')
+        //     .style('fill', function(d) { return 'white';});
 
         graphArea.selectAll(".acquired").data(year_to_company)
             .transition()
@@ -205,7 +249,7 @@ $(function () {
             .attr("y", function (d) {
                 return yScale(getYCoordinate(d.AcquiredBy, 3))
             })
-.transition()
+            .transition()
             .duration(1000)
             .attr("x", function (d) {
                 return xScale(getXCoordinate(d.AcquiredBy, 4))
@@ -213,7 +257,7 @@ $(function () {
             .attr("y", function (d) {
                 return yScale(getYCoordinate(d.AcquiredBy, 4))
             })
-.transition()
+            .transition()
             .duration(1000)
             .attr("x", function (d) {
                 return xScale(getXCoordinate(d.AcquiredBy, 5))
@@ -221,7 +265,7 @@ $(function () {
             .attr("y", function (d) {
                 return yScale(getYCoordinate(d.AcquiredBy, 5))
             })
-.transition()
+            .transition()
             .duration(1000)
             .attr("x", function (d) {
                 return xScale(getXCoordinate(d.AcquiredBy, 6))
@@ -229,13 +273,20 @@ $(function () {
             .attr("y", function (d) {
                 return yScale(getYCoordinate(d.AcquiredBy, 6))
             })
-.transition()
+            .transition()
             .duration(1000)
             .attr("x", function (d) {
                 return xScale(getXCoordinate(d.AcquiredBy, 7))
             })
             .attr("y", function (d) {
                 return yScale(getYCoordinate(d.AcquiredBy, 7))
+            }).transition()
+            .duration(1000)
+            .attr("x", function (d) {
+                return xScale(getXCoordinate(d.AcquiredBy, 8))
+            })
+            .attr("y", function (d) {
+                return yScale(getYCoordinate(d.AcquiredBy, 8))
             });
 
     });
