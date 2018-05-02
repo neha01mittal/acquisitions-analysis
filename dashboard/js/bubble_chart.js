@@ -33,11 +33,11 @@ function bubbleChart() {
   var center = { x: width / 2, y: height / 2 };
 
   var companyCenters = {
-    'Amazon': { x: (width / 6)*1, y: height / 2 - 50},
-    'Apple': { x: (width / 6)*2, y: height / 2 - 50},
-    'Facebook': { x: (width / 6)*3, y: height / 2 - 50},
-    'Google': { x: (width / 6)*4, y: height / 2 - 50},
-    'Microsoft': { x: (width / 6)*5 - 30, y: height / 2 - 50}
+    'Amazon': { x: (width / 6)*1, y: height / 2},
+    'Apple': { x: (width / 6)*2, y: height / 2},
+    'Facebook': { x: (width / 6)*3, y: height / 2},
+    'Google': { x: (width / 6)*4, y: height / 2},
+    'Microsoft': { x: (width / 6)*5 - 30, y: height / 2}
   };
 
   // X locations of the year titles.
@@ -79,12 +79,12 @@ function bubbleChart() {
 
 
  var categoryCenters = {
-    'AI/ML/Analytics': { x: (width / 7)*1 +30, y: height / 2 - 50},
-    'AR/VR': { x: (width / 7)*2, y: height / 2 - 50 },
-    'Hardware': { x: (width / 7)*3, y: height / 2 - 50},
-    'Software': { x: (width / 7)*4, y: height / 2 - 50},
-    'Media/Commerce/UserDB': { x: (width / 7)*5, y: height / 2 - 50},
-    'Security': { x: (width / 7)*6 -20, y: height / 2 - 50},
+    'AI/ML/Analytics': { x: (width / 7)*1 +30, y: height / 2},
+    'AR/VR': { x: (width / 7)*2, y: height / 2},
+    'Hardware': { x: (width / 7)*3, y: height / 2},
+    'Software': { x: (width / 7)*4, y: height / 2},
+    'Media/Commerce/UserDB': { x: (width / 7)*5, y: height / 2},
+    'Security': { x: (width / 7)*6 -20, y: height / 2},
     
   };
 
@@ -93,7 +93,7 @@ function bubbleChart() {
     'AI/ML/Analytics': 145,
     'AR/VR': 330,
     'Hardware': 510,
-    'Software': 790,
+    'Software': 780,
     'Media/Commerce/UserDB': 1065,
     'Security': 1260
     
@@ -147,68 +147,43 @@ function bubbleChart() {
 // X locations of the paragraph write-ups.
 // NOT CATEGORIES OR COMPANY
   var paragraph_all_TitleX = {
-    'Amazon_all': 120,
-    'Apple_all': 370,
-    'Facebook_all': 590,
-    'Google_all': 870,
-    'Microsoft_all': 1190
+    'Over the last 15 years the Big 5 tech companies acquired almost 600 companies combined': 220,
+    'As expected, the majority of acquistions are software companies': 1100
   };
 
   var paragraph_00_05_TitleX = {
-    'Amazon_00_05': 120,
-    'Apple_00_05': 370,
-    'Facebook_00_05': 590,
-    'Google_00_05': 870,
-    'Microsoft_00_05': 1190
+    'A total of 70 acquisitions occured over this time period': 320,
+    'Not surprisingly over 80% were software companies': 1000
   };
 
   var paragraph_06_11_TitleX = {
-    'Amazon_06_11': 120,
-    'Apple_06_11': 370,
-    'Facebook_06_11': 590,
-    'Google_06_11': 870,
-    'Microsoft_06_11': 1190
+    'Not only did the number of acquisitions increase but also the diversity of companies acquired': 250,
+    'Software acquisitions accounted for ~60%, while AI/ML/Analytics and Media/Commerce/UserDB accounted for ~15% each': 1050
   };
 
   var paragraph_12_Present_TitleX = {
-    'Amazon_12_Present': 120,
-    'Apple_12_Present': 370,
-    'Facebook_12_Present': 590,
-    'Google_12_Present': 870,
-    'Microsoft_12_Present': 1190
+    'The Big 5 acquired over 300 companies in just over the last 5 years. Software companies remained a large portion of acquisitions at ~60%': 250,
+    'AI/ML/Analytics grew significantly to ~22% of the companies acquired from ~15%, and AR/VR acquisitions began during this time period, constituting 3% of acquisitions': 1100
   };
 
   // COMPANIES
   var paragraph_all_companies = {
-    'Amazon_all_companies': 120,
-    'Apple_all_companies': 370,
-    'Facebook_all_companies': 590,
-    'Google_all_companies': 870,
-    'Microsoft_all_companies': 1190
+    'The chart shows the distinct differences in the types of businesses the Big 5 companies have acquired. For instance, Amazon acquired commerce companies, Apple acquired software and hardware, Facebook acquired software and media/userDB companies, Google acquired a mix of everything, and Microsoft acquired software companies.': 600
   };
 
   var paragraph_00_05_companies = {
-    'Amazon_00_05_companies': 120,
-    'Apple_00_05_companies': 370,
-    'Facebook_00_05_companies': 590,
-    'Google_00_05_companies': 870,
-    'Microsoft_00_05_companies': 1190
+    'Microsoft, the most mature company of the Big 5, comprised over half of the acquisitions': 250,
+    'Google, even as a young company (founded in 1998) made 13 acquisitions, which comprised aroun 20% of the acquisitions, ': 1050
   };
 
   var paragraph_06_11_companies = {
-    'Amazon_06_11_companies': 120,
-    'Apple_06_11_companies': 370,
-    'Facebook_06_11_companies': 590,
-    'Google_06_11_companies': 870,
-    'Microsoft_06_11_companies': 1190
+    'Amazon during this time frame began consolidating its competitors from Zappos to Audible, acquiring 12 Media/Commerce/UserDB companies': 250,
+    'Google began investing outside of its traditional software background, making big acquisitions in YouTube, DoubleApple, and reMail': 1050
   };
 
   var paragraph_12_Present_companies = {
-    'Amazon_12_Present_companies': 120,
-    'Apple_12_Present_companies': 370,
-    'Facebook_12_Present_companies': 590,
-    'Google_12_Present_companies': 870,
-    'Microsoft_12_Present_companies': 1190
+    'All the Big 5 companies made large acquisitions outside of their traditional business lines': 250,
+    'Amazon: Whole Foods; Apple: Beats Electronics; Facebook: WhatsApp and Oculus; Google: Nest; Microsoft: LinkedIn': 1050
   };
 
   // CATEGORIES
@@ -221,19 +196,12 @@ function bubbleChart() {
   };
 
   var paragraph_00_05_categories = {
-    'Amazon_00_05_category': 120,
-    'Apple_00_05_category': 370,
-    'Facebook_00_05_category': 590,
-    'Google_00_05_category': 870,
-    'Microsoft_00_05_category': 1190
+    'Google and Microsoft were the two main companies competing for acquisitions, predominately software companies, during this time period': 650
   };
 
   var paragraph_06_11_categories = {
-    'Amazon_06_11_category': 120,
-    'Apple_06_11_category': 370,
-    'Facebook_06_11_category': 590,
-    'Google_06_11_category': 870,
-    'Microsoft_06_11_category': 1190
+    'Google made large acquisitions in every category except AR/VR during this time period from reMail to YouTube and to reCAPTCHA': 120,
+    'The chart also clearly show Amazon buying up commerce companies from Zappos to Audible and to Woot': 370
   };
 
   var paragraph_12_Present_categories = {
@@ -1294,7 +1262,30 @@ function showCompanies_legend() {
 //   }
 
 
-
+function wrap(text, width) {
+    text.each(function() {
+        var text = d3.select(this),
+        words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineNumber = 0, //<-- 0!
+        lineHeight = 1.2, // ems
+        x = text.attr("x"), //<-- include the x!
+        y = text.attr("y"),
+        dy = text.attr("dy") ? text.attr("dy") : 0; //<-- null check
+        tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
+        while (word = words.pop()) {
+            line.push(word);
+            tspan.text(line.join(" "));
+            if (tspan.node().getComputedTextLength() > width) {
+                line.pop();
+                tspan.text(line.join(" "));
+                line = [word];
+                tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+            }
+        }
+    });
+}
 
 
 
@@ -1321,9 +1312,10 @@ function showCompanies_legend() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_all')
         .attr('x', function (d) { return paragraph_all_TitleX[d];})
-        .attr('y', 400)
+        .attr('y', 200)
         .attr('text-anchor', 'middle')
-        .text(function (d) { return d; });
+        .text(function (d) { return d; })
+        .call(wrap, 250);
   }
 
   function hideParagraph_all() {
@@ -1341,9 +1333,10 @@ function showCompanies_legend() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_00_05')
         .attr('x', function (d) { return paragraph_00_05_TitleX[d];})
-        .attr('y', 400)
+        .attr('y', 200)
         .attr('text-anchor', 'middle')
-        .text(function (d) { return d; });
+        .text(function (d) { return d; })
+        .call(wrap,250);
   }
 
   function hideParagraph_00_05() {
@@ -1360,9 +1353,10 @@ function showCompanies_legend() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_06_11')
         .attr('x', function (d) { return paragraph_06_11_TitleX[d];})
-        .attr('y', 400)
+        .attr('y', 200)
         .attr('text-anchor', 'middle')
-        .text(function (d) { return d; });
+        .text(function (d) { return d; })
+        .call(wrap,250);
   }
 
   function hideParagraph_06_11() {
@@ -1379,9 +1373,10 @@ function showCompanies_legend() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_12_Present')
         .attr('x', function (d) { return paragraph_12_Present_TitleX[d];})
-        .attr('y', 400)
+        .attr('y', 175  )
         .attr('text-anchor', 'middle')
-        .text(function (d) { return d; });
+        .text(function (d) { return d; })
+        .call(wrap,275);
   }
 
   function hideParagraph_12_Present() {
@@ -1399,9 +1394,10 @@ function showParagraph_all_companies() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_all_companies')
         .attr('x', function (d) { return paragraph_all_companies[d];})
-        .attr('y', 400)
+        .attr('y', 390)
         .attr('text-anchor', 'middle')
-        .text(function (d) { return d; });
+        .text(function (d) { return d; })
+        .call(wrap,1100);
   }
 
   function hideParagraph_all_companies() {
@@ -1418,9 +1414,10 @@ function showParagraph_all_companies() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_00_05_companies')
         .attr('x', function (d) { return paragraph_00_05_companies[d];})
-        .attr('y', 400)
+        .attr('y', 350)
         .attr('text-anchor', 'middle')
-        .text(function (d) { return d; });
+        .text(function (d) { return d; })
+        .call(wrap,300);
   }
 
   function hideParagraph_00_05_companies() {
@@ -1438,9 +1435,10 @@ function showParagraph_all_companies() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_06_11_companies')
         .attr('x', function (d) { return paragraph_06_11_companies[d];})
-        .attr('y', 400)
+        .attr('y', 375)
         .attr('text-anchor', 'middle')
-        .text(function (d) { return d; });
+        .text(function (d) { return d; })
+        .call(wrap,475);
   }
 
   function hideParagraph_06_11_companies() {
@@ -1458,9 +1456,10 @@ function showParagraph_all_companies() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_12_Present_companies')
         .attr('x', function (d) { return paragraph_12_Present_companies[d];})
-        .attr('y', 400)
+        .attr('y', 375)
         .attr('text-anchor', 'middle')
-        .text(function (d) { return d; });
+        .text(function (d) { return d; })
+        .call(wrap,475);
   }
 
   function hideParagraph_12_Present_companies() {
