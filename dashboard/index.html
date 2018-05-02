@@ -1,281 +1,356 @@
 <!DOCTYPE HTML>
 
 <html>
-	<head>
-		<title>Tech Takeover</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.dropotron.min.js"></script>
-		<script src="js/jquery.scrollgress.min.js"></script>
-		<script src="js/jquery.scrolly.min.js"></script>
-		<script src="js/jquery.slidertron.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-layers.min.js"></script>
-		<script src="js/init.js"></script> 
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-	  <script src="https://code.highcharts.com/highcharts.js"></script>
-	  <script src="https://code.highcharts.com/modules/annotations.js"></script>
-	  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-	  <script src="https://code.highcharts.com/modules/export-data.js"></script>
-	  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-	  <link rel="stylesheet" href="css/bubble_chart.css">
-	  <link rel="stylesheet" href="css/graph_tree.css">
-	  <!-- <script
-	  src="http://code.jquery.com/jquery-3.3.1.min.js"
-	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	  crossorigin="anonymous"></script> -->
+<head>
+    <title>Tech Takeover</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <!--[if lte IE 8]>
+    <script src="css/ie/html5shiv.js"></script><![endif]-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.dropotron.min.js"></script>
+    <script src="js/jquery.scrollgress.min.js"></script>
+    <script src="js/jquery.scrolly.min.js"></script>
+    <script src="js/jquery.slidertron.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-layers.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/annotations.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bubble_chart.css">
+    <link rel="stylesheet" href="ticker/style.css">
+    <link rel="stylesheet" href="css/graph_tree.css">
+    <!-- <script
+    src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script> -->
 
-		<noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/reset.css">
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-xlarge.css" />
-			
-		</noscript>
-		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-	</head>
-	<body class="landing">
+    <noscript>
+        <link rel="stylesheet" href="css/skel.css"/>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="css/style-xlarge.css"/>
 
-		<!-- Header -->
-			<header id="header" class="alt skel-layers-fixed">
-				<!--<h1><a href="index.html">HTML5 Website <span>by Html5webtemplates.co.uk</span></a></h1>-->
-				<nav id="nav">
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<!-- <li>
-							<a href="" class="icon fa-angle-down">Layouts</a>
-							<ul>
-								<li><a href="left-sidebar.html">Left Sidebar</a></li>
-								<li><a href="right-sidebar.html">Right Sidebar</a></li>
-								<li><a href="no-sidebar.html">No Sidebar</a></li>
-								<li>
-									<a href="">Submenu</a>
-									<ul>
-										<li><a href="#">Option 1</a></li>
-										<li><a href="#">Option 2</a></li>
-										<li><a href="#">Option 3</a></li>
-										<li><a href="#">Option 4</a></li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li><a href="elements.html">Elements</a></li> -->
-					</ul>
-				</nav>
-			</header>
+    </noscript>
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="css/ie/v9.css"/><![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="css/ie/v8.css"/><![endif]-->
+</head>
+<body class="landing">
 
-		<!-- Banner -->
-			<section id="banner">
-				<div class="inner">
-					<h3>UNFOLDING THE STORY OF</h3><h2>THE ACQUISITION TAKEOVER BY THE 5 TECH GIANTS</h2>
-					<p>What are they buying and what does it mean?</p>
-					<ul class="actions">
-						<li><a href="#one" class="button big scrolly">Learn More</a></li>
-					</ul>
-				</div>
-			</section>
+<!-- Header -->
+<header id="header" class="alt skel-layers-fixed">
+    <!--<h1><a href="index.html">HTML5 Website <span>by Html5webtemplates.co.uk</span></a></h1>-->
+    <nav id="nav">
+        <ul>
+            <!--<li><a href="index.html">Home</a></li>-->
+            <!-- <li>
+                <a href="" class="icon fa-angle-down">Layouts</a>
+                <ul>
+                    <li><a href="left-sidebar.html">Left Sidebar</a></li>
+                    <li><a href="right-sidebar.html">Right Sidebar</a></li>
+                    <li><a href="no-sidebar.html">No Sidebar</a></li>
+                    <li>
+                        <a href="">Submenu</a>
+                        <ul>
+                            <li><a href="#">Option 1</a></li>
+                            <li><a href="#">Option 2</a></li>
+                            <li><a href="#">Option 3</a></li>
+                            <li><a href="#">Option 4</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="elements.html">Elements</a></li> -->
+        </ul>
+    </nav>
+</header>
+
+<section id='banner'>
+    <iframe defer="defer" src="http://people.ischool.berkeley.edu/~neha01mittal/infoviz/d3-code/" style='width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;'>
+        <p>Your browser does not support iframes.</p>
+    </iframe>
+    <div class="inner">
+        <h3>THE ACQUISITION TAKEOVER BY</h3>
+        <h2>THE 5 TECH GIANTS</h2>
+        <p>What are they buying and what does it mean?</p>
+        <ul class="actions">
+            <li><a href="#one" class="button big scrolly">Learn More</a></li>
+        </ul>
+    </div>
+    <div>
+        <div><img src='images/pc1.png' style='height: 30px;
+    right: 20%;
+    width: 40px;
+    position: absolute;
+    top: 30%'>
+            <p style='color: white;
+    position: absolute;
+    right: 3%;
+    font-size: 17px; top: 30%;'>AI/ML/Analytics</p></div>
+
+        <div><img src='images/pc2.png' style='height: 30px;
+    right: 20%;
+    width: 40px;
+    top: 40%;
+    position: absolute;'>
+            <p style='color: white;
+    position: absolute;
+    right: 3%;
+    top: 40%;
+    font-size: 17px;'>AR/VR</p></div>
+
+        <div><img src='images/pc3.png' style='height: 30px;
+    right: 20%;
+    width: 40px;
+    position: absolute;top: 50%;'>
+            <p style='color: white;
+    position: absolute;
+    right: 3%;
+    font-size: 17px;top: 50%;'>Media/Ad/Content</p></div>
+        <div><img src='images/pc4.png' style='height: 30px;
+    right: 20%;
+    width: 40px;
+    top: 60%;
+    position: absolute;'>
+            <p style='color: white;
+    position: absolute;
+    right: 3%;
+    top: 60%;
+    font-size: 17px;'>Software</p></div>
+        <!--<div><img src='images/pc2.png'>-->
+        <!--<p>AR/VR</p></div>-->
+        <!--<div><img src='images/pc3.png'>-->
+        <!--<p>Media/Ad/Content</p></div>-->
+        <!--<div><img src='images/pc4.png'>-->
+        <!--<p>Software</p></div>-->
+    </div>
+</section>
 
 
-		<!-- Six -->
-		<section id="highcharts" class="wrapper style2">
-				<header class="major">
-						<h2>Traditionally, people focus on how much </h2>
-						</header>
-				<div id="container_highcharts" align="left" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-				<div id="paragraph_highcharts" class="4u 6u(2) 12u$(3)">
-					<h3>Why </h3>
-					<p>Ipsum dolor tempus commodo amet sed accumsan et adipiscing blandit porttitor sed faucibus.</p>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
+<section id='"ticker'>
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker__item">Microsoft acquires LinkedIn for $26B!!</div>
+            <div class="ticker__item">Facebook buys Whatsapp Inc. for $19B.
+            </div>
+            <div class="ticker__item">Google acquires Motorola for $12.5B</div>
+            <div class="ticker__item">Microsoft acquires Skype for $8.5B</div>
+            <div class="ticker__item">Apple acquires Beats Electronics for $3B</div>
+            <div class="ticker__item">Amazon buys Whole Foods Market for $13.7B</div>
+            <!--<div class="ticker__item">Letterpress chambray brunch.</div>-->
+            <!--<div class="ticker__item">Vice mlkshk crucifix beard chillwave meditation hoodie asymmetrical Helvetica.-->
+            <!--</div>-->
+            <!--<div class="ticker__item">Ugh PBR&B kale chips Echo Park.</div>-->
+            <!--<div class="ticker__item">Gluten-free mumblecore chambray mixtape food truck.</div>-->
+            <!--<div class="ticker__item">Authentic bitters seitan pug single-origin coffee whatever.</div>-->
+        </div>
+    </div>
+</section>
+<!-- Six -->
+<section id="highcharts" class="wrapper style2">
+    <header class="major">
+        <h2>Traditionally, people focus on how much </h2>
+    </header>
+    <div id="container_highcharts" align="left" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div id="paragraph_highcharts" class="4u 6u(2) 12u$(3)">
+        <h3>Why </h3>
+        <p>Ipsum dolor tempus commodo amet sed accumsan et adipiscing blandit porttitor sed faucibus.</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 
 
-					</div>
-		</section>
+    </div>
+</section>
 
 
-		<!-- One -->
-			<!-- <section id="one" class="wrapper style1">
-				<div class="container">
-					<header class="major">
-						<h2>Did you know?</h2>
-						<p>Ipsum dolor tempus commodo turpis adipiscing adipiscing in tempor placerat<br />
-						sed amet accumsan enim lorem sem turpis ut. Massa amet erat accumsan curae<br />
-						blandit porttitor faucibus in nisl nisi volutpat massa mi non nascetur.</p>
-					</header>
-					<div class="slider">
-						<span class="nav-previous"></span>
-						<div class="viewer">
-							<div class="reel">
-								<div class="slide">
-									<img src="images/slide01.jpg" alt="" />
-								</div>
-								<div class="slide">
-									<img src="images/slide02.jpg" alt="" />
-								</div>
-								<div class="slide">
-									<img src="images/slide03.jpg" alt="" />
-								</div>
-							</div>
-						</div>
-						<span class="nav-next"></span>
-					</div>
-				</div>
-			</section> -->
-			
-		<!-- Two -->
-			<!-- <section id="two" class="wrapper style2">
-				<div class="container">
-					<div class="row uniform">
-						<div class="4u 6u(2) 12u$(3)">
-							<section class="feature fa-briefcase">
-								<h3>Natoque phasellus</h3>
-								<p>Ipsum dolor tempus commodo amet sed accumsan et adipiscing blandit porttitor sed faucibus.</p>
-							</section>
-						</div>
-						<div class="4u 6u$(2) 12u$(3)">
-							<section class="feature fa-code">
-								<h3>Ultricies dolore</h3>
-								<p>Ipsum dolor tempus commodo amet sed accumsan et adipiscing blandit porttitor sed faucibus.</p>
-							</section>
-						</div>
-						<div class="4u$ 6u(2) 12u$(3)">
-							<section class="feature fa-save">
-								<h3>Magna lacinia</h3>
-								<p>Ipsum dolor tempus commodo amet sed accumsan et adipiscing blandit porttitor sed faucibus.</p>
-							</section>
-						</div>
-						<div class="4u 6u$(2) 12u$(3)">
-							<section class="feature fa-desktop">
-								<h3>Praesent lacinia</h3>
-								<p>Ipsum dolor tempus commodo amet sed accumsan et adipiscing blandit porttitor sed faucibus.</p>
-							</section>
-						</div>
-						<div class="4u 6u(2) 12u$(3)">
-							<section class="feature fa-camera-retro">
-								<h3>Morbi semper</h3>
-								<p>Ipsum dolor tempus commodo amet sed accumsan et adipiscing blandit porttitor sed faucibus.</p>
-							</section>
-						</div>
-						<div class="4u$ 6u$(2) 12u$(3)">
-							<section class="feature fa-cog">
-								<h3>Arcu consequat</h3>
-								<p>Ipsum dolor tempus commodo amet sed accumsan et adipiscing blandit porttitor sed faucibus.</p>
-							</section>
-						</div>
-					</div>
-				</div>
-			</section> -->
-			
-		<!-- Three -->
-			<!-- <section id="three" class="wrapper style1">
-				<div class="container">
-					<header class="major">
-						<h2>Amet nisl consequat</h2>
-						<p>Ipsum dolor tempus commodo turpis adipiscing adipiscing in tempor placerat<br />
-						sed amet accumsan enim lorem sem turpis ut. Massa amet erat accumsan curae<br />
-						blandit porttitor faucibus in nisl nisi volutpat massa mi non nascetur.</p>
-					</header>
-					<div class="row">
-						<div class="4u 6u(2) 12u$(3)">
-							<article class="box post">
-								<a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a>
-								<h3>Sed amet lorem</h3>
-								<p>Ipsum dolor tempus et commodo lorem accumsan et adipiscing blandit porttitor feugiat tempus lorem faucibus.</p>
-								<ul class="actions">
-									<li><a href="#" class="button">Learn More</a></li>
-								</ul>
-							</article>
-						</div>
-						<div class="4u 6u$(2) 12u$(3)">
-							<article class="box post">
-								<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-								<h3>Massa accumsan</h3>
-								<p>Ipsum dolor tempus et commodo lorem accumsan et adipiscing blandit porttitor feugiat tempus lorem faucibus.</p>
-								<ul class="actions">
-									<li><a href="#" class="button">Learn More</a></li>
-								</ul>
-							</article>
-						</div>
-						<div class="4u$ 6u(2) 12u$(3)">
-							<article class="box post">
-								<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
-								<h3>Faucibus portitor</h3>
-								<p>Ipsum dolor tempus et commodo lorem accumsan et adipiscing blandit porttitor feugiat tempus lorem faucibus.</p>
-								<ul class="actions">
-									<li><a href="#" class="button">Learn More</a></li>
-								</ul>
-							</article>
-						</div>
-						<div class="4u 6u$(2) 12u$(3)">
-							<article class="box post">
-								<a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
-								<h3>Non placerat</h3>
-								<p>Ipsum dolor tempus et commodo lorem accumsan et adipiscing blandit porttitor feugiat tempus lorem faucibus.</p>
-								<ul class="actions">
-									<li><a href="#" class="button">Learn More</a></li>
-								</ul>
-							</article>
-						</div>
-						<div class="4u 6u(2) 12u$(3)">
-							<article class="box post">
-								<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
-								<h3>Adipiscing dolor</h3>
-								<p>Ipsum dolor tempus et commodo lorem accumsan et adipiscing blandit porttitor feugiat tempus lorem faucibus.</p>
-								<ul class="actions">
-									<li><a href="#" class="button">Learn More</a></li>
-								</ul>
-							</article>
-						</div>
-						<div class="4u$ 6u$(2) 12u$(3)">
-							<article class="box post">
-								<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
-								<h3>Feugiat tempus</h3>
-								<p>Ipsum dolor tempus et commodo lorem accumsan et adipiscing blandit porttitor feugiat tempus lorem faucibus.</p>
-								<ul class="actions">
-									<li><a href="#" class="button">Learn More</a></li>
-								</ul>
-							</article>
-						</div>
-					</div>
-				</div>
-			</section> -->
-		
-		<!-- Four -->
-		<section id="four" class="wrapper style1">
-			<div class="container">
-	    <h3>Takeover of Big 5 Tech Companies</h3>
-	    <div id="toolbar">
-	      <a href="#" id="all" class="bubble_button button">All Years</a>
-	      <a href="#" id="year00-05" class="bubble_button button">2000-2005</a>
-	      <a href="#" id="year06-11" class="bubble_button button">2006-2011</a>
-	      <a href="#" id="year12-Present" class="bubble_button button">2012-Present</a>
+<!-- One -->
+<!-- <section id="one" class="wrapper style1">
+    <div class="container">
+        <header class="major">
+            <h2>Did you know?</h2>
+            <p>Ipsum dolor tempus commodo turpis adipiscing adipiscing in tempor placerat<br />
+            sed amet accumsan enim lorem sem turpis ut. Massa amet erat accumsan curae<br />
+            blandit porttitor faucibus in nisl nisi volutpat massa mi non nascetur.</p>
+        </header>
+        <div class="slider">
+            <span class="nav-previous"></span>
+            <div class="viewer">
+                <div class="reel">
+                    <div class="slide">
+                        <img src="images/slide01.jpg" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="images/slide02.jpg" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="images/slide03.jpg" alt="" />
+                    </div>
+                </div>
+            </div>
+            <span class="nav-next"></span>
+        </div>
+    </div>
+</section> -->
 
-	      <img src="category_legend.png" alt="category_legend" class="legend category_legend">
-	      <img style="display: none;" src="company_legend.png" alt="company_legend" class="legend company_legend">
-	      <br>
-	      <a href="#" id="year" class="bubble_button button">Company</a>
-	      <a href="#" id="category" class="bubble_button button">Categories</a>
-	      <div>
-	    	
-	    	
-	    </div>
-	    </div>
-	    
-	  </div>
-	  <div id="vis"></div>
-	</section>
+<!-- Two -->
+<!-- <section id="two" class="wrapper style2">
+    <div class="container">
+        <div class="row uniform">
+            <div class="4u 6u(2) 12u$(3)">
+                <section class="feature fa-briefcase">
+                    <h3>Natoque phasellus</h3>
+                    <p>Ipsum dolor tempus commodo amet sed accumsan et adipiscing blandit porttitor sed faucibus.</p>
+                </section>
+            </div>
+            <div class="4u 6u$(2) 12u$(3)">
+                <section class="feature fa-code">
+                    <h3>Ultricies dolore</h3>
+                    <p>Ipsum dolor tempus commodo amet sed accumsan et adipiscing blandit porttitor sed faucibus.</p>
+                </section>
+            </div>
+            <div class="4u$ 6u(2) 12u$(3)">
+                <section class="feature fa-save">
+                    <h3>Magna lacinia</h3>
+                    <p>Ipsum dolor tempus commodo amet sed accumsan et adipiscing blandit porttitor sed faucibus.</p>
+                </section>
+            </div>
+            <div class="4u 6u$(2) 12u$(3)">
+                <section class="feature fa-desktop">
+                    <h3>Praesent lacinia</h3>
+                    <p>Ipsum dolor tempus commodo amet sed accumsan et adipiscing blandit porttitor sed faucibus.</p>
+                </section>
+            </div>
+            <div class="4u 6u(2) 12u$(3)">
+                <section class="feature fa-camera-retro">
+                    <h3>Morbi semper</h3>
+                    <p>Ipsum dolor tempus commodo amet sed accumsan et adipiscing blandit porttitor sed faucibus.</p>
+                </section>
+            </div>
+            <div class="4u$ 6u$(2) 12u$(3)">
+                <section class="feature fa-cog">
+                    <h3>Arcu consequat</h3>
+                    <p>Ipsum dolor tempus commodo amet sed accumsan et adipiscing blandit porttitor sed faucibus.</p>
+                </section>
+            </div>
+        </div>
+    </div>
+</section> -->
 
-	 	<!-- Five -->
+<!-- Three -->
+<!-- <section id="three" class="wrapper style1">
+    <div class="container">
+        <header class="major">
+            <h2>Amet nisl consequat</h2>
+            <p>Ipsum dolor tempus commodo turpis adipiscing adipiscing in tempor placerat<br />
+            sed amet accumsan enim lorem sem turpis ut. Massa amet erat accumsan curae<br />
+            blandit porttitor faucibus in nisl nisi volutpat massa mi non nascetur.</p>
+        </header>
+        <div class="row">
+            <div class="4u 6u(2) 12u$(3)">
+                <article class="box post">
+                    <a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a>
+                    <h3>Sed amet lorem</h3>
+                    <p>Ipsum dolor tempus et commodo lorem accumsan et adipiscing blandit porttitor feugiat tempus lorem faucibus.</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button">Learn More</a></li>
+                    </ul>
+                </article>
+            </div>
+            <div class="4u 6u$(2) 12u$(3)">
+                <article class="box post">
+                    <a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
+                    <h3>Massa accumsan</h3>
+                    <p>Ipsum dolor tempus et commodo lorem accumsan et adipiscing blandit porttitor feugiat tempus lorem faucibus.</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button">Learn More</a></li>
+                    </ul>
+                </article>
+            </div>
+            <div class="4u$ 6u(2) 12u$(3)">
+                <article class="box post">
+                    <a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
+                    <h3>Faucibus portitor</h3>
+                    <p>Ipsum dolor tempus et commodo lorem accumsan et adipiscing blandit porttitor feugiat tempus lorem faucibus.</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button">Learn More</a></li>
+                    </ul>
+                </article>
+            </div>
+            <div class="4u 6u$(2) 12u$(3)">
+                <article class="box post">
+                    <a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
+                    <h3>Non placerat</h3>
+                    <p>Ipsum dolor tempus et commodo lorem accumsan et adipiscing blandit porttitor feugiat tempus lorem faucibus.</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button">Learn More</a></li>
+                    </ul>
+                </article>
+            </div>
+            <div class="4u 6u(2) 12u$(3)">
+                <article class="box post">
+                    <a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
+                    <h3>Adipiscing dolor</h3>
+                    <p>Ipsum dolor tempus et commodo lorem accumsan et adipiscing blandit porttitor feugiat tempus lorem faucibus.</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button">Learn More</a></li>
+                    </ul>
+                </article>
+            </div>
+            <div class="4u$ 6u$(2) 12u$(3)">
+                <article class="box post">
+                    <a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
+                    <h3>Feugiat tempus</h3>
+                    <p>Ipsum dolor tempus et commodo lorem accumsan et adipiscing blandit porttitor feugiat tempus lorem faucibus.</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button">Learn More</a></li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<!-- Four -->
+<section id="four" class="wrapper style1">
+    <div class="container">
+        <h3>Takeover of Big 5 Tech Companies</h3>
+        <div id="toolbar">
+            <a href="#" id="all" class="bubble_button button">All Years</a>
+            <a href="#" id="year00-05" class="bubble_button button">2000-2005</a>
+            <a href="#" id="year06-11" class="bubble_button button">2006-2011</a>
+            <a href="#" id="year12-Present" class="bubble_button button">2012-Present</a>
+
+            <img src="category_legend.png" alt="category_legend" class="legend category_legend">
+            <img style="display: none;" src="company_legend.png" alt="company_legend" class="legend company_legend">
+            <br>
+            <a href="#" id="year" class="bubble_button button">Company</a>
+            <a href="#" id="category" class="bubble_button button">Categories</a>
+            <div>
+            </div>
+        </div>
+
+    </div>
+    <div id="vis"></div>
+</section>
+
+<!-- Five -->
 <!-- 	 	<section>
 	 	<h3>TABLEAU CHART</h3>
 	 	<script type='text/javascript' src='https://us-west-2b.online.tableau.com/javascripts/api/viz_v1.js'></script>
@@ -292,65 +367,49 @@
 	 	</section> -->
 
 
-	 	<!-- Six -->
-		<section class="wrapper style1">
-			<div>
-	    <h3>Graph Tree</h3>
-	  	</div>
-	  	<div id="graph_tree"></div>
-		</section>
+<!-- Six -->
+<section class="wrapper style1">
+    <div>
+        <h3>Graph Tree</h3>
+    </div>
+    <div id="graph_tree"></div>
+</section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		<!-- CTA -->
+<!-- CTA -->
 <!-- 			<section id="cta" class="wrapper style3">
 				<h2>Sed faucibus et consequat</h2>
 				<ul class="actions">
 					<li><a href="#" class="button big">Get Started</a></li>
 				</ul>
 			</section> -->
-			
-		<!-- Footer -->
-			<footer id="footer">
-<!-- 				<ul class="icons">
-					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-					<li><a href="#" class="icon fa-envelope"><span class="label">Envelope</span></a></li>
-				</ul>
-				<ul class="menu">
-					<li><a href="#">FAQ</a></li>
-					<li><a href="#">Terms of Use</a></li>
-					<li><a href="#">Privacy</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul> -->
-				<span class="copyright">
+
+<!-- Footer -->
+<footer id="footer">
+    <!-- 				<ul class="icons">
+                        <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                        <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                        <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+                        <li><a href="#" class="icon fa-envelope"><span class="label">Envelope</span></a></li>
+                    </ul>
+                    <ul class="menu">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul> -->
+    <span class="copyright">
 					&copy; Copyright. All rights reserved. Design by <a href="http://www.html5webtemplates.co.uk">Responsive Web Templates</a>
 				</span>
-			</footer>
+</footer>
 
 <!-- NEED TO CHANGE src -->
-			<script src="lib/d3.js"></script> 
-		  <script src="js/tooltip.js"></script>
-		  <script src="js/bubble_chart.js"></script>
-		  <script src="js/graph_tree.js"></script>
-		  <script src="js/script.js"></script>
+<script src="lib/d3.js"></script>
+<script src="js/tooltip.js"></script>
+<script src="js/bubble_chart.js"></script>
+<script src="js/graph_tree.js"></script>
+<script src="js/script.js"></script>
 
-	</body>
+</body>
 </html>
