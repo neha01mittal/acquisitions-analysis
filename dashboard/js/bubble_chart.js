@@ -162,33 +162,33 @@ function bubbleChart() {
   };
 
   var paragraph_12_Present_TitleX = {
-    'The Big 5 acquired over 300 companies in just over the last 5 years. Software companies remained a large portion of acquisitions at ~60%': 250,
+    'The Big 5 acquired over 300 companies over the last 5 years. Software companies remained a large portion of acquisitions at ~60%': 250,
     'AI/ML/Analytics grew significantly to ~22% of the companies acquired from ~15%, and AR/VR acquisitions began during this time period, constituting 3% of acquisitions': 1100
   };
 
   // COMPANIES
   var paragraph_all_companies = {
-    'The chart shows the distinct differences in the types of businesses the Big 5 companies have acquired. For instance, Amazon acquired commerce companies, Apple acquired software and hardware, Facebook acquired software and media/userDB companies, Google acquired a mix of everything, and Microsoft acquired software companies.': 700
+    'The chart shows the distinct differences in the types of businesses the Big 5 companies have acquired. For instance, Amazon acquired commerce companies, Apple acquired software and hardware companies, Facebook acquired software and media/userDB companies, Google acquired a mix of everything, and Microsoft acquired software companies.': 700
   };
 
   var paragraph_00_05_companies = {
     'Microsoft, the most mature company of the Big 5, comprised over half of the acquisitions': 320,
-    'Google, even as a young company (founded in 1998) made 13 acquisitions, which comprised aroun 20% of the acquisitions, ': 1000
+    'Google, even as a young company (founded in 1998) made 13 acquisitions, which comprised around 20% of the acquisitions, ': 1000
   };
 
   var paragraph_06_11_companies = {
     'Amazon during this time frame began consolidating its competitors from Zappos to Audible, acquiring 12 Media/Commerce/UserDB companies': 320,
-    'Google began investing outside of its traditional software background, making big acquisitions in YouTube, DoubleApple, and reMail': 1000
+    'Google began investing outside of its traditional software background, making big acquisitions in YouTube, DoubleClick, and reMail': 1000
   };
 
   var paragraph_12_Present_companies = {
-    'All the Big 5 companies made large acquisitions outside of their traditional business lines': 320,
-    'Amazon: Whole Foods; Apple: Beats Electronics; Facebook: WhatsApp and Oculus; Google: Nest; Microsoft: LinkedIn': 1000
+    'All the Big 5 companies, except Apple made large acquisitions outside of their traditional business lines': 320,
+    'Amazon: Whole Foods; Facebook: WhatsApp and Oculus; Google: Nest; Microsoft: LinkedIn': 1000
   };
 
   // CATEGORIES
   var paragraph_all_categories = {
-    'Google has a large mix of acquisitions across all categories, except AR/VR.': 320,
+    'Google has a large mix of acquisitions across all categories, except AR/VR': 320,
     'Acquistion concentations by company stand out in this chart from Amazon in Media/Commerce/UserDB to Apple in Hardware and to Google in AI/ML/Analytics': 1000
   };
 
