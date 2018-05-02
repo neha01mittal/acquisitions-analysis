@@ -87,15 +87,15 @@ Highcharts.chart('container_highcharts', {
                 textOutline: '1px white'
             }
         },
-        labels: [{
-            point: {
-                    xAxis: 0,
-                yAxis: 0,
-                x: 3.22,
-                y: 32000
-            },
-            text: 'LinkedIn'
-        }]
+        // labels: [{
+        //     point: {
+        //             xAxis: 0,
+        //         yAxis: 0,
+        //         x: 3.22,
+        //         y: 32000
+        //     },
+        //     text: 'LinkedIn'
+        // }]
     },{
         labelOptions: {
             shape: 'connector',     
@@ -106,15 +106,15 @@ Highcharts.chart('container_highcharts', {
                 textOutline: '1px white'
             }
         },
-        labels: [{
-            point: {
-                    xAxis: 0,
-                yAxis: 0,
-                x: 2.9,
-                y: 14800
-            },
-            text: 'WholeFoods'
-        }]
+        // labels: [{
+        //     point: {
+        //             xAxis: 0,
+        //         yAxis: 0,
+        //         x: 2.9,
+        //         y: 14800
+        //     },
+        //     text: 'WholeFoods'
+        // }]
     },{
         labelOptions: {
             shape: 'connector',
@@ -126,15 +126,15 @@ Highcharts.chart('container_highcharts', {
                 textOutline: '1px white'
             }
         },
-        labels: [{
-            point: {
-                    xAxis: 0,
-                yAxis: 0,
-                x: 2.1,
-                y: 17000
-            },
-            text: 'Motorola<br>Mobility'
-        }]
+        // labels: [{
+        //     point: {
+        //             xAxis: 0,
+        //         yAxis: 0,
+        //         x: 2.1,
+        //         y: 17000
+        //     },
+        //     text: 'Motorola<br>Mobility'
+        // }]
     },{
         labelOptions: {
             shape: 'connector',
@@ -146,15 +146,15 @@ Highcharts.chart('container_highcharts', {
                 textOutline: '1px white'
             }
         },
-        labels: [{
-            point: {
-                    xAxis: 0,
-                yAxis: 0,
-                x: 2.25,
-                y: 18000
-            },
-            text: 'Skype,<br>Nokia'
-        }]
+        // labels: [{
+        //     point: {
+        //             xAxis: 0,
+        //         yAxis: 0,
+        //         x: 2.25,
+        //         y: 18000
+        //     },
+        //     text: 'Skype,<br>Nokia'
+        // }]
     },{
         labelOptions: {
             shape: 'connector',
@@ -166,15 +166,15 @@ Highcharts.chart('container_highcharts', {
                 textOutline: '1px white'
             }
         },
-        labels: [{
-            point: {
-                    xAxis: 0,
-                yAxis: 0,
-                x: 1.75,
-                y: 4700
-            },
-            text: 'Beats'
-        }]
+        // labels: [{
+        //     point: {
+        //             xAxis: 0,
+        //         yAxis: 0,
+        //         x: 1.75,
+        //         y: 4700
+        //     },
+        //     text: 'Beats'
+        // }]
     },{
         labelOptions: {
             shape: 'connector',
@@ -186,15 +186,15 @@ Highcharts.chart('container_highcharts', {
                 textOutline: '1px white'
             }
         },
-        labels: [{
-            point: {
-                    xAxis: 0,
-                yAxis: 0,
-                x: 2,
-                y: 6400
-            },
-            text: 'Whatsapp,<br>OculusVR'
-        }]
+        // labels: [{
+        //     point: {
+        //             xAxis: 0,
+        //         yAxis: 0,
+        //         x: 2,
+        //         y: 6400
+        //     },
+        //     text: 'Whatsapp,<br>OculusVR'
+        // }]
     },{
         labelOptions: {
             shape: 'connector',
@@ -206,15 +206,15 @@ Highcharts.chart('container_highcharts', {
                 textOutline: '1px white'
             }
         },
-        labels: [{
-            point: {
-                    xAxis: 0,
-                yAxis: 0,
-                x: 0.1,
-                y: 4700
-            },
-            text: 'Youtube'
-        }]
+        // labels: [{
+        //     point: {
+        //             xAxis: 0,
+        //         yAxis: 0,
+        //         x: 0.1,
+        //         y: 4700
+        //     },
+        //     text: 'Youtube'
+        // }]
     },{
         labelOptions: {
             shape: 'connector',

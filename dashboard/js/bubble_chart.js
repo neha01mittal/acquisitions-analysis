@@ -249,7 +249,7 @@ function bubbleChart() {
   // Nice looking colors - no reason to buck the trend
   var fillColor = d3.scale.ordinal()
     .domain(['AI/ML/Analytics', 'Software', 'AR/VR', 'Hardware', 'Security', 'Media/Commerce/UserDB'])
-    .range(['black', '#33FFCC', '#FF0000', '#FF9933', 'aqua', '#FF66CC']);
+    .range(['#8C564B', '#9EDAE5', '#BCBD22', '#E377C2', '#7F7F7F', '#9467BD']);
 
 
   var fillColorCompanies = d3.scale.ordinal()
@@ -1802,4 +1802,67 @@ $('.bubble_button').on('click', function() {
   }
   event.preventDefault();
 });
+
+$('.cat_button').on('click', function() {
+  console.log("hello");
+  var selected = $(this).text();
+  console.log(selected);
+
+  if (selected == 'AI/ML/Analytics'){
+    $("#container_AI_img").show();
+    $("#container_AR_img").css("display", "none");
+    $("#container_Hardware_img").css("display", "none");
+    $("#container_Media_img").css("display", "none");
+    $("#container_Security_img").css("display", "none");
+    $("#container_Software_img").css("display", "none");
+}
+
+if (selected == 'AR/VR'){
+    $("#container_AR_img").show();
+    $("#container_AI_img").css("display", "none");
+    $("#container_Hardware_img").css("display", "none");
+    $("#container_Media_img").css("display", "none");
+    $("#container_Security_img").css("display", "none");
+    $("#container_Software_img").css("display", "none");
+}
+
+if (selected == 'Hardware'){
+    $("#container_Hardware_img").show();
+    $("#container_AI_img").css("display", "none");
+    $("#container_AR_img").css("display", "none");
+    $("#container_Media_img").css("display", "none");
+    $("#container_Security_img").css("display", "none");
+    $("#container_Software_img").css("display", "none");
+}
+
+if (selected == 'Media/Commerce/UserDB'){
+    $("#container_Media_img").show();
+    $("#container_AI_img").css("display", "none");
+    $("#container_AR_img").css("display", "none");
+    $("#container_Hardware_img").css("display", "none");
+    $("#container_Security_img").css("display", "none");
+    $("#container_Software_img").css("display", "none");
+}
+
+if (selected == 'Security'){
+    $("#container_Security_img").show();
+    $("#container_AI_img").css("display", "none");
+    $("#container_AR_img").css("display", "none");
+    $("#container_Hardware_img").css("display", "none");
+    $("#container_Media_img").css("display", "none");
+    $("#container_Software_img").css("display", "none");
+}
+
+if (selected == 'Software'){
+    $("#container_Software_img").show();
+    $("#container_AI_img").css("display", "none");
+    $("#container_AR_img").css("display", "none");
+    $("#container_Hardware_img").css("display", "none");
+    $("#container_Media_img").css("display", "none");
+    $("#container_Security_img").css("display", "none");
+}
+
+event.preventDefault();
+});
+
 

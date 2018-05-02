@@ -1319,6 +1319,22 @@
 			margin-left: 2%;
 		}
 
+/* Static image div*/
+	.container_img {
+		margin-top: 20px;
+		margin-left: 50px;
+			display: inline-block;
+			width: 50%;
+
+		}
+
+	.category_img_paragraph {
+		display: inline-block;
+		width:40%;
+		margin-left: 2%;
+	}
+
+
 /* Graph Tree div*/
 		#graph_tree {
 			width: 100%;
