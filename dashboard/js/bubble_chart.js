@@ -168,48 +168,42 @@ function bubbleChart() {
 
   // COMPANIES
   var paragraph_all_companies = {
-    'The chart shows the distinct differences in the types of businesses the Big 5 companies have acquired. For instance, Amazon acquired commerce companies, Apple acquired software and hardware, Facebook acquired software and media/userDB companies, Google acquired a mix of everything, and Microsoft acquired software companies.': 600
+    'The chart shows the distinct differences in the types of businesses the Big 5 companies have acquired. For instance, Amazon acquired commerce companies, Apple acquired software and hardware, Facebook acquired software and media/userDB companies, Google acquired a mix of everything, and Microsoft acquired software companies.': 700
   };
 
   var paragraph_00_05_companies = {
-    'Microsoft, the most mature company of the Big 5, comprised over half of the acquisitions': 250,
-    'Google, even as a young company (founded in 1998) made 13 acquisitions, which comprised aroun 20% of the acquisitions, ': 1050
+    'Microsoft, the most mature company of the Big 5, comprised over half of the acquisitions': 320,
+    'Google, even as a young company (founded in 1998) made 13 acquisitions, which comprised aroun 20% of the acquisitions, ': 1000
   };
 
   var paragraph_06_11_companies = {
-    'Amazon during this time frame began consolidating its competitors from Zappos to Audible, acquiring 12 Media/Commerce/UserDB companies': 250,
-    'Google began investing outside of its traditional software background, making big acquisitions in YouTube, DoubleApple, and reMail': 1050
+    'Amazon during this time frame began consolidating its competitors from Zappos to Audible, acquiring 12 Media/Commerce/UserDB companies': 320,
+    'Google began investing outside of its traditional software background, making big acquisitions in YouTube, DoubleApple, and reMail': 1000
   };
 
   var paragraph_12_Present_companies = {
-    'All the Big 5 companies made large acquisitions outside of their traditional business lines': 250,
-    'Amazon: Whole Foods; Apple: Beats Electronics; Facebook: WhatsApp and Oculus; Google: Nest; Microsoft: LinkedIn': 1050
+    'All the Big 5 companies made large acquisitions outside of their traditional business lines': 320,
+    'Amazon: Whole Foods; Apple: Beats Electronics; Facebook: WhatsApp and Oculus; Google: Nest; Microsoft: LinkedIn': 1000
   };
 
   // CATEGORIES
   var paragraph_all_categories = {
-    'Amazon_all_category': 120,
-    'Apple_all_category': 370,
-    'Facebook_all_category': 590,
-    'Google_all_category': 870,
-    'Microsoft_all_category': 1190
+    'Google has a large mix of acquisitions across all categories, except AR/VR.': 320,
+    'Acquistion concentations by company stand out in this chart from Amazon in Media/Commerce/UserDB to Apple in Hardware and to Google in AI/ML/Analytics': 1000
   };
 
   var paragraph_00_05_categories = {
-    'Google and Microsoft were the two main companies competing for acquisitions, predominately software companies, during this time period': 650
+    'Google and Microsoft were the two main companies competing for acquisitions, predominately for software companies, during this time period': 700
   };
 
   var paragraph_06_11_categories = {
-    'Google made large acquisitions in every category except AR/VR during this time period from reMail to YouTube and to reCAPTCHA': 120,
-    'The chart also clearly show Amazon buying up commerce companies from Zappos to Audible and to Woot': 370
+    'Google made large acquisitions in every category except AR/VR during this time period from reMail to YouTube and to reCAPTCHA': 320,
+    'The chart also clearly show Amazon buying up commerce companies from Zappos to Audible and to Woot': 1000
   };
 
   var paragraph_12_Present_categories = {
-    'Amazon_12_Present_category': 120,
-    'Apple_12_Present_category': 370,
-    'Facebook_12_Present_category': 590,
-    'Google_12_Present_category': 870,
-    'Microsoft_12_Present_category': 1190
+    'While the number of software companies acquired continues to grow the size of the acquisitions in terms of headcount decreases, demonstrating potentially the maturity of the Big 5 tech companies': 320,
+    'On the other hand this time period had a number of large Media/Commerce/UserDB acquisitions, which included Whole Foods, LinkedIn, WhatsApp, and Souq.com': 1000
   };
 
 // **************
@@ -1417,7 +1411,7 @@ function showParagraph_all_companies() {
         .attr('y', 350)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; })
-        .call(wrap,300);
+        .call(wrap,475);
   }
 
   function hideParagraph_00_05_companies() {
@@ -1478,9 +1472,10 @@ function showParagraph_all_categories() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_all_categories')
         .attr('x', function (d) { return paragraph_all_categories[d];})
-        .attr('y', 400)
+        .attr('y', 380)
         .attr('text-anchor', 'middle')
-        .text(function (d) { return d; });
+        .text(function (d) { return d; })
+        .call(wrap,550);
   }
 
   function hideParagraph_all_categories() {
@@ -1497,9 +1492,10 @@ function showParagraph_all_categories() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_00_05_categories')
         .attr('x', function (d) { return paragraph_00_05_categories[d];})
-        .attr('y', 400)
+        .attr('y', 350)
         .attr('text-anchor', 'middle')
-        .text(function (d) { return d; });
+        .text(function (d) { return d; })
+        .call(wrap,550);
   }
 
   function hideParagraph_00_05_categories() {
@@ -1517,9 +1513,10 @@ function showParagraph_all_categories() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_06_11_categories')
         .attr('x', function (d) { return paragraph_06_11_categories[d];})
-        .attr('y', 400)
+        .attr('y', 375)
         .attr('text-anchor', 'middle')
-        .text(function (d) { return d; });
+        .text(function (d) { return d; })
+        .call(wrap,550);
   }
 
   function hideParagraph_06_11_categories() {
@@ -1537,9 +1534,10 @@ function showParagraph_all_categories() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_12_Present_categories')
         .attr('x', function (d) { return paragraph_12_Present_categories[d];})
-        .attr('y', 400)
+        .attr('y', 360)
         .attr('text-anchor', 'middle')
-        .text(function (d) { return d; });
+        .text(function (d) { return d; })
+        .call(wrap,550);;
   }
 
   function hideParagraph_12_Present_categories() {
