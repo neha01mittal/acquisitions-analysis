@@ -1803,10 +1803,23 @@ $('.bubble_button').on('click', function() {
   event.preventDefault();
 });
 
+
+
 $('.cat_button').on('click', function() {
-  console.log("hello");
+  
   var selected = $(this).text();
-  console.log(selected);
+
+ var activeStyle = {
+      backgroundColor : "black",
+      color: "white"
+    };
+
+      var nonActiveStyle = {
+      backgroundColor : "white",
+      color: "#444",
+      border: "1px solid #e0e0e0"
+    };
+
 
   if (selected == 'AI/ML/Analytics'){
     $("#container_AI_img").show();
@@ -1815,6 +1828,15 @@ $('.cat_button').on('click', function() {
     $("#container_Media_img").css("display", "none");
     $("#container_Security_img").css("display", "none");
     $("#container_Software_img").css("display", "none");
+    
+    $(this).css(activeStyle);
+    // $("#ai_button").css(nonActiveStyle);
+    $("#ar_button").css(nonActiveStyle);
+    $("#hardware_button").css(nonActiveStyle);
+    $("#software_button").css(nonActiveStyle);
+    $("#media_button").css(nonActiveStyle);
+    $("#security_button").css(nonActiveStyle);
+
 }
 
 if (selected == 'AR/VR'){
@@ -1824,6 +1846,14 @@ if (selected == 'AR/VR'){
     $("#container_Media_img").css("display", "none");
     $("#container_Security_img").css("display", "none");
     $("#container_Software_img").css("display", "none");
+
+    $(this).css(activeStyle);
+    $("#ai_button").css(nonActiveStyle);
+    // $("#ar_button").css(nonActiveStyle);
+    $("#hardware_button").css(nonActiveStyle);
+    $("#software_button").css(nonActiveStyle);
+    $("#media_button").css(nonActiveStyle);
+    $("#security_button").css(nonActiveStyle);
 }
 
 if (selected == 'Hardware'){
@@ -1833,6 +1863,14 @@ if (selected == 'Hardware'){
     $("#container_Media_img").css("display", "none");
     $("#container_Security_img").css("display", "none");
     $("#container_Software_img").css("display", "none");
+
+    $(this).css(activeStyle);
+    $("#ai_button").css(nonActiveStyle);
+    $("#ar_button").css(nonActiveStyle);
+    // $("#hardware_button").css(nonActiveStyle);
+    $("#software_button").css(nonActiveStyle);
+    $("#media_button").css(nonActiveStyle);
+    $("#security_button").css(nonActiveStyle);
 }
 
 if (selected == 'Media/Commerce/UserDB'){
@@ -1842,6 +1880,14 @@ if (selected == 'Media/Commerce/UserDB'){
     $("#container_Hardware_img").css("display", "none");
     $("#container_Security_img").css("display", "none");
     $("#container_Software_img").css("display", "none");
+
+    $(this).css(activeStyle);
+    $("#ai_button").css(nonActiveStyle);
+    $("#ar_button").css(nonActiveStyle);
+    $("#hardware_button").css(nonActiveStyle);
+    $("#software_button").css(nonActiveStyle);
+    // $("#media_button").css(nonActiveStyle);
+    $("#security_button").css(nonActiveStyle);
 }
 
 if (selected == 'Security'){
@@ -1851,6 +1897,14 @@ if (selected == 'Security'){
     $("#container_Hardware_img").css("display", "none");
     $("#container_Media_img").css("display", "none");
     $("#container_Software_img").css("display", "none");
+
+    $(this).css(activeStyle);
+    $("#ai_button").css(nonActiveStyle);
+    $("#ar_button").css(nonActiveStyle);
+    $("#hardware_button").css(nonActiveStyle);
+    $("#software_button").css(nonActiveStyle);
+    $("#media_button").css(nonActiveStyle);
+    // $("#security_button").css(nonActiveStyle);
 }
 
 if (selected == 'Software'){
@@ -1860,6 +1914,14 @@ if (selected == 'Software'){
     $("#container_Hardware_img").css("display", "none");
     $("#container_Media_img").css("display", "none");
     $("#container_Security_img").css("display", "none");
+
+    $(this).css(activeStyle);
+    $("#ai_button").css(nonActiveStyle);
+    $("#ar_button").css(nonActiveStyle);
+    $("#hardware_button").css(nonActiveStyle);
+    // $("#software_button").css(nonActiveStyle);
+    $("#media_button").css(nonActiveStyle);
+    $("#security_button").css(nonActiveStyle);
 }
 
 event.preventDefault();
