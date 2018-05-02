@@ -1339,7 +1339,15 @@
   color: #fff;
 	}
 
+/* Tableau div*/
+.tableauPlaceholder{
+	margin-bottom: 40px;
+	margin-left: 100px;
+}
 
+.tableauViz {
+	margin-left: 300px;
+}
 /* Graph Tree div*/
 		#graph_tree {
 			width: 100%;
