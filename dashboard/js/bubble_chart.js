@@ -1306,7 +1306,7 @@ function wrap(text, width) {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_all')
         .attr('x', function (d) { return paragraph_all_TitleX[d];})
-        .attr('y', 200)
+        .attr('y', 240)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; })
         .call(wrap, 250);
@@ -1327,7 +1327,7 @@ function wrap(text, width) {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_00_05')
         .attr('x', function (d) { return paragraph_00_05_TitleX[d];})
-        .attr('y', 200)
+        .attr('y', 240)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; })
         .call(wrap,250);
@@ -1347,7 +1347,7 @@ function wrap(text, width) {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_06_11')
         .attr('x', function (d) { return paragraph_06_11_TitleX[d];})
-        .attr('y', 200)
+        .attr('y', 240)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; })
         .call(wrap,250);
@@ -1367,7 +1367,7 @@ function wrap(text, width) {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_12_Present')
         .attr('x', function (d) { return paragraph_12_Present_TitleX[d];})
-        .attr('y', 175  )
+        .attr('y', 215  )
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; })
         .call(wrap,275);
@@ -1388,7 +1388,7 @@ function showParagraph_all_companies() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_all_companies')
         .attr('x', function (d) { return paragraph_all_companies[d];})
-        .attr('y', 390)
+        .attr('y', 430)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; })
         .call(wrap,1100);
@@ -1408,7 +1408,7 @@ function showParagraph_all_companies() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_00_05_companies')
         .attr('x', function (d) { return paragraph_00_05_companies[d];})
-        .attr('y', 350)
+        .attr('y', 390)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; })
         .call(wrap,475);
@@ -1429,7 +1429,7 @@ function showParagraph_all_companies() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_06_11_companies')
         .attr('x', function (d) { return paragraph_06_11_companies[d];})
-        .attr('y', 375)
+        .attr('y', 415)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; })
         .call(wrap,475);
@@ -1450,7 +1450,7 @@ function showParagraph_all_companies() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_12_Present_companies')
         .attr('x', function (d) { return paragraph_12_Present_companies[d];})
-        .attr('y', 375)
+        .attr('y', 415)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; })
         .call(wrap,475);
@@ -1472,7 +1472,7 @@ function showParagraph_all_categories() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_all_categories')
         .attr('x', function (d) { return paragraph_all_categories[d];})
-        .attr('y', 380)
+        .attr('y', 420)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; })
         .call(wrap,550);
@@ -1492,7 +1492,7 @@ function showParagraph_all_categories() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_00_05_categories')
         .attr('x', function (d) { return paragraph_00_05_categories[d];})
-        .attr('y', 350)
+        .attr('y', 390)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; })
         .call(wrap,550);
@@ -1513,7 +1513,7 @@ function showParagraph_all_categories() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_06_11_categories')
         .attr('x', function (d) { return paragraph_06_11_categories[d];})
-        .attr('y', 375)
+        .attr('y', 415)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; })
         .call(wrap,550);
@@ -1534,7 +1534,7 @@ function showParagraph_all_categories() {
     paragraph.enter().append('text')
         .attr('class', 'paragraph_12_Present_categories')
         .attr('x', function (d) { return paragraph_12_Present_categories[d];})
-        .attr('y', 360)
+        .attr('y', 400)
         .attr('text-anchor', 'middle')
         .text(function (d) { return d; })
         .call(wrap,550);;
