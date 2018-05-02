@@ -1173,6 +1173,25 @@ function bubbleChart() {
   }
 
 
+function showCompanies_legend() {
+    // Another way to do this would be to create
+    // the year texts once and then just hide them.
+    var yearsData = d3.keys(company_12_Present_TitleX);
+
+    var years = svg.selectAll('.year')
+      .data(yearsData);
+
+    years.enter().append('text')
+      .attr('class', 'year_12_Present')
+      .attr('x', function (d) { return company_12_Present_TitleX[d]; })
+      .attr('y', 40)
+      .attr('text-anchor', 'middle')
+      .text(function (d) { return d; });
+  }
+
+  function hideCompanies_12_Present() {
+    svg.selectAll('.year_12_Present').remove();
+  }
 
 
 
@@ -1261,6 +1280,18 @@ function bubbleChart() {
   
 
 
+
+// var legendCategories = svg.selectAll('circles')
+//       .data(categoryData);
+
+//     years.enter().append('circle')
+//       .attr('class', 'circle')
+//       .attr('x', function (d) { return 50})
+//       .attr('y', 75)
+//       .attr('r', 0)
+//       .attr('fill', function (d) { return "black" })
+//       .attr('stroke', function (d) { return "black" })
+//   }
 
 
 
@@ -1719,6 +1750,8 @@ $('.bubble_button').on('click', function() {
     $("#year12-Present").css(nonActiveStyle);
     $("#year").css(nonActiveStyle);
     $("#category").css(nonActiveStyle);
+    $(".category_legend").show();
+    $(".company_legend").css("display", "none");
   }
 
 
@@ -1729,6 +1762,8 @@ $('.bubble_button').on('click', function() {
     $("#year12-Present").css(nonActiveStyle);
     $("#year").css(nonActiveStyle);
     $("#category").css(nonActiveStyle);
+    $(".category_legend").show();
+    $(".company_legend").css("display", "none");
   }
 
   if (selected == '2012-Present'){
@@ -1738,6 +1773,8 @@ $('.bubble_button').on('click', function() {
     $("#year06-11").css(nonActiveStyle);
     $("#year").css(nonActiveStyle);
     $("#category").css(nonActiveStyle);
+    $(".category_legend").show();
+    $(".company_legend").css("display", "none");
   }
 
   if (selected == 'All Years'){
@@ -1747,18 +1784,24 @@ $('.bubble_button').on('click', function() {
     $("#year12-Present").css(nonActiveStyle);
     $("#year").css(nonActiveStyle);
     $("#category").css(nonActiveStyle);
+    $(".category_legend").show();
+    $(".company_legend").css("display", "none");
   }
 
   if (selected == 'Company'){
     $(this).css(activeStyle);
     $("#year").css(activeStyle);
     $("#category").css(nonActiveStyle);
+    $(".category_legend").show();
+    $(".company_legend").css("display", "none");
   }
 
   if (selected == 'Categories'){
     $(this).css(activeStyle);
     $("#year").css(nonActiveStyle);
     $("#category").css(activeStyle);
+    $(".company_legend").show();
+    $(".category_legend").css("display", "none");
   }
   event.preventDefault();
 });

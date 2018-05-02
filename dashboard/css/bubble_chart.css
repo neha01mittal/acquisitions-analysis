@@ -158,8 +158,14 @@ a, a:visited, a:active {
 }
 
 
+.category_legend {
+  width: 55%;
+  text-align: left;
+}
 
-
+.company_legend {
+  width: 55%;
+}
 
 
 
