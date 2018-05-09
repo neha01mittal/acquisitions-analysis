@@ -21,8 +21,8 @@
     }
 }
 .ticker-wrap {
-    position: absolute;
-    top: 160vh;
+    /*position: absolute;*/
+    /*top: 150vh;*/
     width: 100%;
     overflow: hidden;
     height: 4rem;

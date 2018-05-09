@@ -14,8 +14,12 @@ $(function () {
     var width = canvasWidth - margin.left - margin.right;
     var height = canvasHeight - margin.top - margin.bottom;
     var svg = d3.select('svg')
-        .attr('width', canvasWidth)
-        .attr('height', canvasHeight);
+        .attr("preserveAspectRatio", "xMinYMin meet")
+        .attr("viewBox", "0 0 1200 500")
+        //class to make it responsive
+        .classed("svg-content-responsive", true);
+    // .attr('width', canvasWidth)
+        // .attr('height', canvasHeight);
     // Add area for points
     var graphArea = svg.append('g')
         .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
@@ -67,17 +71,17 @@ $(function () {
             return getRndInteger(60, 80);
         else if (step == 6 || step == 7 || step == 8) {
             if (acquiringCompany.toLowerCase() == 'google') {
-                return 8;
+                return 10;
             }
             else if (acquiringCompany.toLowerCase() == 'amazon') {
-                return 34;
+                return 28;
             }
             else if (acquiringCompany.toLowerCase() == 'microsoft')
-                return 61;
+                return 44;
             else if (acquiringCompany.toLowerCase() == 'apple')
-                return 86;
+                return 60;
             else if (acquiringCompany.toLowerCase() == 'facebook')
-                return 112;
+                return 76;
         }
 
     }
@@ -93,13 +97,13 @@ $(function () {
         else if (step == 4)
             return getRndInteger(60, 70);
         else if (step == 5)
-            return getRndInteger(50, 30);
+            return getRndInteger(60, 50);
         else if (step == 6)
-            return 10;
+            return 45;
         else if (step == 7)
-            return 3;
+            return 15;
         else if (step == 8)
-            return -8
+            return 10;
 
     }
 
@@ -118,7 +122,7 @@ $(function () {
             year_to_company.push(d);
         });
         xScale = d3.scaleLinear()
-            .domain([0, 140]) //maybe add max function here -- d3.max(data,function(d){return d[0]})
+            .domain([0, 100]) //maybe add max function here -- d3.max(data,function(d){return d[0]})
             .range([0, width]);
         yScale = d3.scaleLinear()
             .domain([0, 100])
@@ -285,9 +289,12 @@ $(function () {
             .attr("x", function (d) {
                 return xScale(getXCoordinate(d.AcquiredBy, 8))
             })
-            .attr("y", function (d) {
-                return yScale(getYCoordinate(d.AcquiredBy, 8))
-            });
+            .transition()
+            .duration(1000)
+            .style("opacity",0);
+            // .attr("y", function (d) {
+            //     return yScale(getYCoordinate(d.AcquiredBy, 8))
+            // });
 
     });
 

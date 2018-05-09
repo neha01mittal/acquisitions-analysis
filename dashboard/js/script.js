@@ -226,15 +226,15 @@ Highcharts.chart('container_highcharts', {
                 textOutline: '1px white'
             }
         },
-        labels: [{
-            point: {
-                yAxis: 0,
-                xAxis: 0,
-                x: 0.3,
-                y: 10000
-            },
-            text: 'aQuantive'
-        }]
+        // labels: [{
+        //     point: {
+        //         yAxis: 0,
+        //         xAxis: 0,
+        //         x: 0.3,
+        //         y: 10000
+        //     },
+        //     text: 'aQuantive'
+        // }]
     }],
 });
 
