@@ -173,7 +173,7 @@ function bubbleChart() {
 
   var paragraph_00_05_companies = {
     'Microsoft, the most mature company of the Big 5, comprised over half of the acquisitions': 320,
-    'Google, even as a young company (founded in 1998) made 13 acquisitions, which comprised around 20% of the acquisitions, ': 1000
+    'Google, even as a young company (founded in 1998) made 13 acquisitions, which comprised around 20% of the acquisitions': 1000
   };
 
   var paragraph_06_11_companies = {
