@@ -9,10 +9,10 @@ Highcharts.chart('container_highcharts', {
         type: 'column'
     },
     title: {
-        text: 'Spend on Acquisitons (2006 - 2017)'
+        text: 'Cash Spent on Acquisitons By The Big 5 (2006 - 2017)'
     },
     subtitle: {
-        text: 'Source: SEC 10-K Filings'
+        text: 'Source: SEC 10-K Filings (**Note: cash spend does not incorporate cost of equity issuance)'
     },
     xAxis: {
         categories: [
@@ -34,7 +34,7 @@ Highcharts.chart('container_highcharts', {
                 }            
             },
         title: {
-            text: 'Spend (in Billions)'
+            text: '$ in Billions'
         }
     },
     tooltip:    {
